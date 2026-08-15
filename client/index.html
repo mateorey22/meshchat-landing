@@ -88,6 +88,26 @@
                 "@type": "Question",
                 "name": "Le chiffrement offre-t-il une confidentialité persistante ?",
                 "acceptedAnswer": {"@type": "Answer", "text": "Les nouveaux messages persistants suivent NIP-17, avec NIP-44 v2 et NIP-59. Cette évolution améliore la standardisation et l’interopérabilité, mais elle n’apporte pas de forward secrecy : Threnyx ne la revendique pas."}
+              },
+              {
+                "@type": "Question",
+                "name": "Que fait le wipe panique de Threnyx ?",
+                "acceptedAnswer": {"@type": "Answer", "text": "Un triple-tap rapide peut fermer les connexions et effacer le coffre local de l’appareil. Il ne peut pas retirer les événements déjà publiés sur des relais Nostr ni les données déjà transmises à un autre appareil."}
+              },
+              {
+                "@type": "Question",
+                "name": "Comment vérifier l’identité cryptographique d’un contact ?",
+                "acceptedAnswer": {"@type": "Answer", "text": "Threnyx affiche le fingerprint public et son QR. Vous pouvez comparer le code par un canal de confiance ; un badge local indique ensuite la vérification. Cette étape réduit le risque de substitution, sans remplacer la comparaison hors-bande."}
+              },
+              {
+                "@type": "Question",
+                "name": "Que peut voir un appareil lié ?",
+                "acceptedAnswer": {"@type": "Answer", "text": "Un appareil lié doit recevoir une portée minimale explicitement autorisée. La révocation bloque les nouvelles synchronisations, mais ne peut pas effacer les données déjà reçues par cet appareil."}
+              },
+              {
+                "@type": "Question",
+                "name": "Comment fonctionnent les invitations de groupe GC1 ?",
+                "acceptedAnswer": {"@type": "Answer", "text": "Les administrateurs peuvent utiliser une invitation de groupe distincte des cartes de contact MC1 et des clés de récupération TCV1. Une invitation de groupe peut expirer ou être révoquée sans retirer les membres déjà présents."}
               }
             ]
           }

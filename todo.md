@@ -73,3 +73,27 @@ Constellation Vault ne diffuse pas le compte en clair chez tous les relais : les
 - [x] Mettre à jour la documentation et les formulations publiques avec les garanties réellement validées.
 - [x] Mettre à jour la landing Threnyx et son fichier pour assistants IA avec la migration NIP-17 et la convergence Yjs effectivement publiées.
 - [ ] Définir une politique de tombstones, de rétention et d’union immuable avant toute fusion CRDT des messages, suppressions et médias.
+
+## Nouvelles fonctionnalités à implémenter dans Threnyx et à présenter sur la landing
+
+- [x] Implémenter le wipe panique triple-tap avec fermeture P2P/relais, effacement IndexedDB, nettoyage mémoire et rechargement discret ; ne jamais prétendre effacer les données déjà publiées aux relais.
+- [ ] Concevoir et tester le code de détresse optionnel, stocké uniquement sous forme de hash séparé, avec distinction sûre entre échec de déverrouillage et déclenchement du wipe.
+- [x] Ajouter l’écran de vérification de sécurité par fingerprint/QR avec états vérifié, date de vérification et invalidation automatique lors d’un changement de clé.
+- [ ] Ajouter les appareils liés à portée limitée avec QR temporaire, demande d’autorisation, chiffrement par appareil, scopes minimaux, révocation et tests de non-transmission hors scope.
+- [ ] Ajouter les invitations de groupe GC1 via NFC/QR avec expiration, révocation, usages contrôlés, ajout direct au groupe et distinction stricte avec MC1/TCV1.
+- [ ] Ajouter un quota GC1 configurable avec décrément garanti contre les demandes concurrentes et refus explicite lorsqu’il est atteint.
+- [x] Mettre en file d’attente les demandes GC1 hors ligne avec accusé, état d’échec visible et reprise après reconnexion.
+- [ ] Tester la séparation MC1/GC1/TCV1 ainsi que l’adhésion, l’expiration, la révocation, les accusés et le quota GC1 concurrent.
+- [x] Mettre à jour la landing avec des démonstrations animées et des formulations honnêtes sur ces fonctionnalités, sans présenter une fonctionnalité non testée comme disponible.
+- [ ] Ajouter les tests unitaires et d’intégration nécessaires pour les nouvelles fonctionnalités avant publication.
+- [ ] Refaire le checkpoint et pousser la landing après validation des nouvelles sections et de leur SEO structuré.
+
+## Limites de sécurité à conserver dans toute communication publique
+
+- [x] Mentionner que le wipe local ne retire pas les événements déjà publiés sur des relais Nostr ni les données déjà transmises à un appareil lié.
+- [x] Mentionner que le fingerprint hors-bande réduit le risque MITM mais dépend de la comparaison par un canal de confiance.
+- [ ] Mentionner que la révocation d’un appareil lié bloque les nouvelles synchronisations sans effacer les données déjà reçues.
+- [x] Ne pas annoncer de forward secrecy, de suppression globale des relais ou de récupération magique des gros médias hors ligne.
+
+- [x] Ajouter et exécuter un test déterministe de format GC1, séparation MC1/TCV1, quota et révocation.
+- [ ] Ajouter un test navigateur multi-appareils couvrant l’Outbox, l’accusé GC1 et la jointure réelle après reconnexion.

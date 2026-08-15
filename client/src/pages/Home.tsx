@@ -20,6 +20,10 @@ import {
   Smartphone,
   X,
   Zap,
+  Fingerprint,
+  Users,
+  MonitorSmartphone,
+  ShieldAlert,
 } from "lucide-react";
 import { useState } from "react";
 
@@ -112,6 +116,7 @@ export default function Home() {
           <a href="#pourquoi" onClick={closeMenu}>Pourquoi</a>
           <a href="#protocole" onClick={closeMenu}>Comment ça marche</a>
           <a href="#constellation" onClick={closeMenu}>Continuité</a>
+          <a href="#controles" onClick={closeMenu}>Contrôles</a>
           <a href="#comparatif" onClick={closeMenu}>Comparatif</a>
           <a href="#questions" onClick={closeMenu}>Questions</a>
           <a className="nav-cta" href={APP_URL} target="_blank" rel="noreferrer" onClick={closeMenu}>
@@ -219,9 +224,32 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="controls section-light" id="controles">
+          <div className="section-inner controls-head">
+            <SectionLabel number="04">CONTRÔLES DE SÉCURITÉ</SectionLabel>
+            <div>
+              <h2>Des outils pour<br /><i>garder la main.</i></h2>
+              <p>Threnyx intègre des mécanismes de protection locaux pour vérifier vos contacts, limiter l’accès de vos appareils secondaires et réagir en cas d’urgence.</p>
+            </div>
+          </div>
+          <div className="controls-grid section-inner">
+            {[
+              { icon: ShieldAlert, title: "Wipe panique", text: "Un triple-tap discret sur la barre supérieure efface immédiatement votre identité et vos messages de l’appareil. Les données déjà publiées sur les relais ne sont pas effacées." },
+              { icon: Fingerprint, title: "Vérification d’empreinte", text: "Comparez l’empreinte cryptographique avec votre contact par un canal sûr. Un badge confirme la vérification et disparaît si la clé est modifiée." },
+              { icon: MonitorSmartphone, title: "Appareils liés limités", text: "Le modèle de portée minimale est en validation : l’objectif est un QR temporaire, des scopes explicites et une révocation qui bloque les nouvelles synchronisations." },
+              { icon: Users, title: "Invitations de groupe", text: "Le format GC1 sépare les invitations de groupe des cartes MC1 et des clés TCV1, avec expiration et révocation côté administrateur." },
+            ].map((item, index) => {
+              const Icon = item.icon;
+              return <motion.article className="control-card" key={item.title} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={reveal} transition={{ duration: 0.5, delay: index * 0.08 }}>
+                <div className="control-icon"><Icon size={21} /></div><h3>{item.title}</h3><p>{item.text}</p>
+              </motion.article>;
+            })}
+          </div>
+        </section>
+
         <section className="constellation section-light" id="constellation">
           <div className="section-inner constellation-head">
-            <SectionLabel number="04">CONSTELLATION VAULT · BÊTA TECHNIQUE</SectionLabel>
+            <SectionLabel number="05">CONSTELLATION VAULT · BÊTA TECHNIQUE</SectionLabel>
             <div>
               <h2>Votre ligne ne devrait pas s’arrêter<br /><i>à un seul appareil.</i></h2>
               <p>Constellation Vault prépare une continuité chiffrée entre vos appareils. Vous publiez volontairement un snapshot : Threnyx le chiffre, le fragmente et attend la confirmation de plusieurs relais avant de le considérer comme répliqué. Lorsque des snapshots compatibles divergent hors ligne, les données de contacts, groupes et préférences peuvent maintenant converger localement.</p>
@@ -244,7 +272,7 @@ export default function Home() {
 
         <section className="compare section-light" id="comparatif">
           <div className="section-inner compare-intro">
-            <SectionLabel number="05">FAIRE UN CHOIX ÉCLAIRÉ</SectionLabel>
+            <SectionLabel number="06">FAIRE UN CHOIX ÉCLAIRÉ</SectionLabel>
             <h2>Ce qui change, concrètement.</h2>
             <p>WhatsApp propose aussi du chiffrement de contenu. Threnyx cherche à réduire davantage les informations à fournir pour commencer : pas de numéro à partager, pas de carnet d’adresses à importer et une identité locale par défaut.</p>
           </div>
@@ -262,7 +290,7 @@ export default function Home() {
 
         <section className="faq section-light" id="questions">
           <div className="section-inner faq-head">
-            <SectionLabel number="06">QUESTIONS CLAIRES</SectionLabel>
+            <SectionLabel number="07">QUESTIONS CLAIRES</SectionLabel>
             <div>
               <h2>Ce qu’il faut savoir<br /><i>avant d’ouvrir la ligne.</i></h2>
               <p>Des réponses directes sur l’identité, la confidentialité, l’installation et le partage de contacts.</p>

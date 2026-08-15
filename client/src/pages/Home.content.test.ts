@@ -25,4 +25,13 @@ describe("contenu public de la migration Nostr", () => {
     expect(indexSource).toContain("Le chiffrement offre-t-il une confidentialité persistante ?");
     expect(indexSource).toContain("NIP-17, NIP-44 v2 et NIP-59");
   });
+
+  it("présente les contrôles de sécurité sans les survendre", () => {
+    expect(homeSource).toContain("Wipe panique");
+    expect(homeSource).toContain("Vérification d’empreinte");
+    expect(homeSource).toContain("Appareils liés limités");
+    expect(homeSource).toContain("Invitations de groupe");
+    expect(llmsSource).toContain("ne supprime pas ce qui a déjà été publié sur les relais");
+    expect(llmsSource).toContain("révocation locale");
+  });
 });
