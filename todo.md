@@ -100,3 +100,18 @@ Constellation Vault ne diffuse pas le compte en clair chez tous les relais : les
 
 - [x] Vérifier publiquement HTTPS que GitHub Pages sert le service worker `threnyx-pwa-v20`.
 - [ ] Tester sur appareil la configuration du code de détresse et son déclenchement sans ouverture du coffre.
+- [ ] Tester sur appareil l’entrée de code de détresse visible avec un coffre biométrique, sans exiger l’échec ou l’annulation de Face ID/empreinte.
+- [ ] Vérifier sur appareil l’animation `panic-flame` et l’effacement local avant le rechargement.
+- [x] Réduire et clarifier la barre supérieure et les actions du profil sur mobile afin d’éviter les collisions de gestes.
+- [x] Moderniser l’interface de chat : alignement du lecteur vocal, détails visuels, contrôle flamme et cohérence des icônes.
+- [x] Remplacer le sélecteur de portrait système par une action d’import cohérente avec le design et un état de fichier lisible.
+- [x] Mettre à jour la typographie de la PWA avec une police locale ou fournie de manière sûre, inspirée des interfaces éditoriales sans dépendance distante au runtime.
+- [x] Renforcer les animations, la hiérarchie visuelle et les appels à l’action de la landing sans exagérer les garanties de sécurité.
+- [x] Diagnostiquer l’absence intermittente de média audio ou vidéo dans les appels WebRTC avec télémétrie locale, état des pistes et négociation ICE.
+- [ ] Corriger les cas reproductibles d’appel WebRTC puis valider l’audio et la vidéo dans les deux sens sur deux appareils.
+- [x] Ajouter une entrée distincte de code de détresse depuis l’écran verrouillé, y compris pour un coffre biométrique.
+- [x] Remplacer le triple-tap par une flamme d’effacement local désactivée par défaut et configurable dans les réglages.
+- [x] Simplifier la barre système et moderniser les surfaces de chat, le lecteur vocal, le sélecteur de portrait et la typographie locale.
+- [x] Mettre à jour la landing avec la flamme configurable, le code de détresse biométrique et une animation de signal respectant les préférences de mouvement.
+- [x] Retirer les transceivers WebRTC doublonnés, accepter les redémarrages ICE bidirectionnels et utiliser les flux distants négociés.
+- [ ] Tester sur deux appareils la flamme activée/désactivée, le code de détresse biométrique, l’audio et la vidéo dans les deux sens après redémarrage ICE.

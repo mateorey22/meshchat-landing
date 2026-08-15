@@ -27,11 +27,12 @@ describe("contenu public de la migration Nostr", () => {
   });
 
   it("présente les contrôles de sécurité sans les survendre", () => {
-    expect(homeSource).toContain("Wipe panique");
+    expect(homeSource).toContain("Flamme d’effacement");
     expect(homeSource).toContain("Code de détresse");
     expect(homeSource).toContain("Vérification d’empreinte");
     expect(homeSource).toContain("Appareils liés limités");
     expect(homeSource).toContain("Invitations de groupe");
+    expect(homeSource).toContain("désactivée par défaut");
     expect(llmsSource).toContain("ne supprime pas ce qui a déjà été publié sur les relais");
     expect(llmsSource).toContain("révocation locale");
     expect(llmsSource).toContain("seul un hash séparé est conservé");

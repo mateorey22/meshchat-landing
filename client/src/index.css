@@ -105,8 +105,12 @@ button:not(:disabled), a[href] { cursor: pointer; }
 .control-card:hover { z-index: 1; background: #eee5d4; transform: translateY(-4px); }
 .control-card:hover::after { transform: scale(1.16) rotate(18deg); }
 .control-icon { display: grid; place-items: center; width: 45px; height: 45px; color: #e8833a; border: 1px solid #7d6b55; }
+.control-status { display: inline-flex; position: relative; z-index: 1; margin-top: 17px; color: #7c6549; font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; font-size: .62rem; letter-spacing: .09em; }
+.control-status::before { content: ""; width: 6px; height: 6px; margin: 4px 7px 0 0; border-radius: 999px; background: #e8833a; box-shadow: 0 0 0 0 rgba(232,131,58,.42); animation: controlPulse 2.4s ease-out infinite; }
 .control-card h3 { position: relative; z-index: 1; margin: 38px 0 12px; color: #191714; font-size: 1.28rem; letter-spacing: -.04em; }
+.control-status + h3 { margin-top: 16px; }
 .control-card p { position: relative; z-index: 1; margin: 0; color: #5b5347; line-height: 1.58; font-size: .92rem; }
+@keyframes controlPulse { 0%, 42% { box-shadow: 0 0 0 0 rgba(232,131,58,.38); } 72%, 100% { box-shadow: 0 0 0 7px rgba(232,131,58,0); } }
 @media (max-width: 900px) {
   .controls-head { grid-template-columns: 1fr; gap: 28px; }
   .controls-grid { grid-template-columns: repeat(2, 1fr); }
@@ -117,4 +121,5 @@ button:not(:disabled), a[href] { cursor: pointer; }
 }
 @media (prefers-reduced-motion: reduce) {
   .control-card, .control-card::after { transition: none; }
+  .control-status::before { animation: none; }
 }

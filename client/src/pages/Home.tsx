@@ -234,15 +234,15 @@ export default function Home() {
           </div>
           <div className="controls-grid section-inner">
             {[
-              { icon: ShieldAlert, title: "Wipe panique", text: "Un triple-tap discret sur la barre supérieure efface immédiatement votre identité et vos messages de l’appareil. Les données déjà publiées sur les relais ne sont pas effacées." },
-              { icon: KeyRound, title: "Code de détresse", text: "Un code distinct de la phrase secrète peut déclencher le wipe local sans ouvrir le coffre. Threnyx ne conserve que son hash séparé, jamais le code en clair." },
+              { icon: ShieldAlert, title: "Flamme d’effacement", text: "Optionnelle et désactivée par défaut, une flamme visible ferme les liens puis efface l’identité et les messages de cet appareil. Elle ne retire pas les données déjà publiées." },
+              { icon: KeyRound, title: "Code de détresse", text: "Un code distinct peut déclencher le wipe local depuis l’écran verrouillé, même si le coffre privilégie Face ID ou l’empreinte. Threnyx ne conserve que son hash séparé." },
               { icon: Fingerprint, title: "Vérification d’empreinte", text: "Comparez l’empreinte cryptographique avec votre contact par un canal sûr. Un badge confirme la vérification et disparaît si la clé est modifiée." },
               { icon: MonitorSmartphone, title: "Appareils liés limités", text: "Le modèle de portée minimale est en validation : l’objectif est un QR temporaire, des scopes explicites et une révocation qui bloque les nouvelles synchronisations." },
               { icon: Users, title: "Invitations de groupe", text: "Le format GC1 sépare les invitations de groupe des cartes MC1 et des clés TCV1, avec expiration et révocation côté administrateur." },
             ].map((item, index) => {
               const Icon = item.icon;
-              return <motion.article className="control-card" key={item.title} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={reveal} transition={{ duration: 0.5, delay: index * 0.08 }}>
-                <div className="control-icon"><Icon size={21} /></div><h3>{item.title}</h3><p>{item.text}</p>
+              return <motion.article className="control-card" key={item.title} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={reveal} transition={{ duration: 0.5, delay: index * 0.08 }} whileHover={{ y: -5, transition: { duration: 0.18 } }}>
+                <div className="control-icon"><Icon size={21} /></div><span className="control-status">LOCAL · CONFIGURABLE</span><h3>{item.title}</h3><p>{item.text}</p>
               </motion.article>;
             })}
           </div>
