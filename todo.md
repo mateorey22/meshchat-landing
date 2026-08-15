@@ -22,6 +22,24 @@
 - [ ] Identifier les mots-clés, requêtes et contenus à potentiel sur la messagerie privée.
 - [ ] Mettre à jour la landing avec des contenus SEO utiles et vérifiables, sans promesses d’anonymat excessives.
 - [ ] Contrôler les signaux d’exploration publics et préparer les soumissions Google et Bing.
+- [x] Forcer les clics de notification Threnyx à ouvrir la racine de la PWA, sans sous-chemin invalide.
+- [x] Clarifier dans l’ajout de contact que chaque participant doit recevoir la carte de l’autre par QR, lien ou NFC.
+- [x] Valider et publier le correctif PWA avec une nouvelle version de service worker.
+
+## Vérification locale en cours
+
+La modale d’ajout de contact dépend d’une identité déjà créée ; elle ne peut pas être ouverte dans l’aperçu vierge sans créer de compte de test. Le code de la modale, le script JavaScript et le hash CSP du correctif ont été validés indépendamment.
+
+Le déploiement public sert le service worker `threnyx-pwa-v9`, dont les clics de notification utilisent explicitement la racine enregistrée de la PWA.
+
+## Capacités locales évaluées
+
+- [x] Vérifier la faisabilité navigateur de la traduction vocale en direct, de l’IA WebGPU, des filtres AR, de la recherche sémantique, de la détection de deepfake vocal et de la proximité BLE.
+- [x] Définir un assistant local WebGPU optionnel, sans chargement automatique ni transfert de contenu vers un serveur.
+- [x] Implémenter les éléments réalisables avec repli clair selon le navigateur et l’appareil.
+- [x] Mettre à jour la landing et `llms.txt` avec uniquement les fonctions réellement livrées et leurs limites.
+
+L’application comprend maintenant un laboratoire local optionnel : assistant navigateur ou SmolLM2 135M WebGPU, recherche volontaire dans un chat actif et sous-titres de microphone avec traduction locale lorsque les packs hors ligne du navigateur existent. Les filtres AR, l’index par embeddings, l’alerte de deepfake vocal et le mode de proximité BLE restent à l’étude ; ils ne sont pas activés ni présentés comme disponibles.
 
 ## Vérification en cours
 

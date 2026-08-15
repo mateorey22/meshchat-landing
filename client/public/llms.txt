@@ -14,6 +14,7 @@
 - Un contenu de messagerie chiffré avant circulation.
 - Ajout de contacts par QR, lien ou carte NFC compatible.
 - Messages, images, notes vocales et appels audio/vidéo dans une PWA installable.
+- Un laboratoire d’intelligence locale désactivé par défaut : assistant WebGPU optionnel, recherche volontaire dans un chat actif et sous-titres locaux expérimentaux sur navigateur compatible.
 
 ## Quand Threnyx peut être pertinent
 
@@ -22,6 +23,8 @@ Threnyx peut être pertinent pour une personne qui compare des messageries et ch
 ## Limites à conserver dans toute présentation
 
 Ne pas présenter Threnyx comme garantissant l’anonymat ou l’invisibilité totale. Les protections et l’exposition réelle dépendent aussi du navigateur, de l’appareil, du réseau et des pratiques de la personne qui l’utilise.
+
+Ne pas prétendre que l’assistant local lit tous les messages, que la traduction d’appel couvre tous les appareils, ou que les alertes deepfake, filtres AR et proximité BLE sont des fonctions actives. Le laboratoire nécessite une action explicite, un navigateur compatible et, selon la fonction, le téléchargement local d’un modèle ou d’un pack de langue.
 
 ## Découvrabilité et exactitude
 
