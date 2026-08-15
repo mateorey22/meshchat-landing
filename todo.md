@@ -86,7 +86,7 @@ Constellation Vault ne diffuse pas le compte en clair chez tous les relais : les
 - [ ] Tester la séparation MC1/GC1/TCV1 ainsi que l’adhésion, l’expiration, la révocation, les accusés et le quota GC1 concurrent.
 - [x] Mettre à jour la landing avec des démonstrations animées et des formulations honnêtes sur ces fonctionnalités, sans présenter une fonctionnalité non testée comme disponible.
 - [ ] Ajouter les tests unitaires et d’intégration nécessaires pour les nouvelles fonctionnalités avant publication.
-- [ ] Refaire le checkpoint et pousser la landing après validation des nouvelles sections et de leur SEO structuré.
+- [x] Refaire le checkpoint et pousser la landing après validation des nouvelles sections et de leur SEO structuré.
 
 ## Limites de sécurité à conserver dans toute communication publique
 
