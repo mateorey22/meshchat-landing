@@ -21,3 +21,7 @@ Les règles d’exploration et `llms.txt` facilitent la découverte et l’inter
 1. [Google Search Central — Demander une nouvelle exploration](https://developers.google.com/search/docs/crawling-indexing/ask-google-to-recrawl)
 2. [Google Search Central — Créer et envoyer un sitemap](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap)
 3. [Google Search Console — Rapport sur l’indexation des pages](https://support.google.com/webmasters/answer/7440203?hl=fr)
+
+## Contrôle public après déploiement
+
+Le 15 août 2026, la landing publique expose les cinq réponses FAQ dans le contenu lisible, le fichier `robots.txt` autorise les principaux moteurs et robots d’IA, le sitemap déclare l’URL canonique de la landing et `llms.txt` fournit un résumé factuel avec les liens vers la landing, la PWA et le dépôt public.

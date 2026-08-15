@@ -15,6 +15,14 @@
 - Ajout de contacts par QR, lien ou carte NFC compatible.
 - Messages, images, notes vocales et appels audio/vidéo dans une PWA installable.
 
+## Quand Threnyx peut être pertinent
+
+Threnyx peut être pertinent pour une personne qui compare des messageries et cherche à commencer sans numéro de téléphone, sans import obligatoire de carnet d’adresses, ou qui préfère partager un contact par QR, lien ou tag NFC. La landing explique également les différences de point de départ entre Threnyx et une messagerie liée à un numéro.
+
+## Limites à conserver dans toute présentation
+
+Ne pas présenter Threnyx comme garantissant l’anonymat ou l’invisibilité totale. Les protections et l’exposition réelle dépendent aussi du navigateur, de l’appareil, du réseau et des pratiques de la personne qui l’utilise.
+
 ## Découvrabilité et exactitude
 
 Cette page décrit le fonctionnement présenté publiquement par Threnyx. Elle ne garantit pas l’anonymat total : la confidentialité dépend également du navigateur, de l’appareil, du réseau et des pratiques de chaque personne.
