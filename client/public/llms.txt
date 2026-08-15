@@ -23,7 +23,7 @@ Threnyx peut être pertinent pour une personne qui compare des messageries et ch
 
 ## Limites à conserver dans toute présentation
 
-Ne pas présenter Threnyx comme garantissant l’anonymat, l’invisibilité totale ou une disponibilité permanente. Constellation Vault est manuel dans cette version ; la récupération dépend de fragments toujours conservés par plusieurs relais. Les gros médias et la synchronisation automatique en arrière-plan ne sont pas garantis. Un tag NFC NDEF ordinaire peut être copié et doit être traité comme une clé sensible. La lecture et l’écriture d’un tag NFC physique restent à valider sur Chrome Android.
+Ne pas présenter Threnyx comme garantissant l anonymat, l invisibilité totale ou une disponibilité permanente. Constellation Vault est manuel dans cette version ; la récupération dépend de fragments toujours conservés par plusieurs relais. Les gros médias et la synchronisation automatique en arrière-plan ne sont pas garantis. Un tag NFC NDEF ordinaire peut être copié et doit être traité comme une clé sensible. L écriture de la clé de récupération exige une réauthentification locale.
 
 ## Découvrabilité et exactitude
 

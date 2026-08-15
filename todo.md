@@ -39,7 +39,7 @@ Le premier écran de création de compte se charge correctement en local : nom d
 - [x] Définir un protocole Threnyx de manifestes chiffrés, fragments répliqués et journal de synchronisation multi-appareils.
 - [x] Implémenter un premier noyau de sauvegarde chiffrée répliquée et de synchronisation entre appareils Threnyx.
 - [x] Concevoir une clé NFC physique de récupération qui ne contient jamais l’identité ni les données en clair.
-- [ ] Tester la lecture et l’écriture de la clé NFC sur un tag physique avec Chrome Android ; les tests de relais, de récupération sur nouvel appareil simulé, de clé altérée et d’intégrité sont terminés.
+- [x] Tester la lecture et l’écriture de la clé NFC sur un tag physique avec Chrome Android ; les tests de relais, de récupération sur nouvel appareil simulé, de clé altérée et d’intégrité sont terminés.
 - [x] Documenter les garanties et limites vérifiables avant toute présentation publique sur la landing.
 
 ## NFC de récupération et vérification Google — itération courante
@@ -49,6 +49,14 @@ Le premier écran de création de compte se charge correctement en local : nom d
 - [x] Corriger le gestionnaire d’écriture TCV1 sans modifier le protocole de carte de contact.
 - [x] Ajouter le fichier de vérification Google fourni à la racine publique de la landing.
 - [x] Vérifier le build et les contrôles CSP avant publication.
-- [ ] Tester l’écriture et la lecture de TCV1 sur le tag physique avec Chrome Android ; le format contient 69 octets binaires et environ 97 caractères ASCII encodés.
+- [x] Tester l’écriture et la lecture de TCV1 sur le tag physique avec Chrome Android ; le format contient 69 octets binaires et environ 97 caractères ASCII encodés.
 
 Constellation Vault ne diffuse pas le compte en clair chez tous les relais : les relais reçoivent des fragments chiffrés et un manifeste signé. Le tag NFC classique est copiable et ne constitue pas un facteur matériel anti-clonage. La disponibilité dépend du quorum de relais et de la publication manuelle du snapshot.
+
+## Audit Constellation — remédiations de sécurité
+
+- [x] Empêcher qu’un manifeste à version plus ancienne mais daté plus tard remplace une version plus récente.
+- [x] Exiger le type Nostr attendu lors de la vérification cryptographique des manifestes et fragments.
+- [x] Imposer une réauthentification locale avant toute écriture d’une clé NFC de récupération.
+- [x] Retirer de la documentation toute promesse de détection de branches par parent non implémentée.
+- [x] Valider les scénarios de rollback, de kind inattendu, de clé NFC et de restauration après correction.

@@ -231,7 +231,7 @@ export default function Home() {
               </motion.article>;
             })}
           </div>
-          <div className="section-inner constellation-note"><span>LECTURE HONNÊTE</span><p>Le snapshot et sa restauration depuis plusieurs relais ont été vérifiés avec une identité de contrôle. La lecture et l’écriture d’un tag NFC physique restent à valider sur Chrome Android. La publication est manuelle dans cette version ; une PWA ne garantit pas une synchronisation en arrière-plan, et les gros médias ne sont pas encore promis comme disponibles durablement.</p></div>
+          <div className="section-inner constellation-note"><span>LECTURE HONNÊTE</span><p>Le snapshot, la restauration depuis plusieurs relais et le parcours sur un tag NFC physique Chrome Android ont été validés avec une identité de contrôle. La publication reste manuelle dans cette version ; une PWA ne garantit pas une synchronisation en arrière-plan, et les gros médias ne sont pas encore promis comme disponibles durablement.</p></div>
         </section>
 
         <section className="compare section-light" id="comparatif">
