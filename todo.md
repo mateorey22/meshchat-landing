@@ -64,7 +64,7 @@ Constellation Vault ne diffuse pas le compte en clair chez tous les relais : les
 ## Migration Nostr standardisée et convergence CRDT
 
 - [x] Vérifier les spécifications NIP-44, NIP-59 et NIP-EE ainsi que leurs implémentations réellement utilisables en navigateur.
-- [ ] Définir une migration lisible par les anciens appareils, avec négociation de capacité et conservation des messages existants.
+- [x] Définir une migration lisible par les anciens appareils, avec négociation de capacité et conservation des messages existants.
 - [x] Évaluer un transport MLS/NIP-EE sans annoncer de forward secrecy tant que l’état de groupe et la rotation sont validés.
 - [ ] Concevoir un document CRDT chiffré pour contacts, groupes, messages et préférences Constellation.
 - [ ] Tester des modifications concurrentes hors ligne, la fusion, la réplication chiffrée et la récupération NFC.
