@@ -5,6 +5,8 @@
 - [ ] Créer la landing page React responsive, animée et conforme à l’univers visuel MeshChat.
 - [ ] Vérifier la compatibilité de l’onboarding avec WebAuthn PRF et le verrouillage du coffre.
 - [ ] Créer le dépôt GitHub dédié et publier la landing page.
+- [ ] Ajouter le workflow GitHub Actions qui compile la landing React et la publie sur GitHub Pages.
+- [ ] Vérifier l’URL GitHub Pages après son premier déploiement.
 
 ## Vérification en cours
 

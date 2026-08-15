@@ -23,10 +23,10 @@ import {
 import { useState } from "react";
 
 const APP_URL = "https://mateorey22.github.io/zenithchat/";
-const markUrl = "/manus-storage/meshchat-mark_cd70efa9.png";
-const heroImage = "/manus-storage/meshchat-hero-network_86bd6c97.jpg";
-const privacyImage = "/manus-storage/meshchat-privacy-field_39696c46.jpg";
-const callImage = "/manus-storage/meshchat-call-field_b3182f98.jpg";
+const markUrl = "https://files.manuscdn.com/user_upload_by_module/session_file/92875856/yKdeYtsrEZUCUkbp.png";
+const heroImage = "https://files.manuscdn.com/user_upload_by_module/session_file/92875856/mKGaociWMqfNBuFS.jpg";
+const privacyImage = "https://files.manuscdn.com/user_upload_by_module/session_file/92875856/xayYzWyvYgnXzRpK.jpg";
+const callImage = "https://files.manuscdn.com/user_upload_by_module/session_file/92875856/oUazlhvpiIJBqKik.jpg";
 
 const reveal = {
   hidden: { opacity: 0, y: 24 },
