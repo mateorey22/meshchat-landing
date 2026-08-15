@@ -18,6 +18,10 @@
 - [x] Renommer les dépôts GitHub historiques vers les dépôts Threnyx retenus.
 - [x] Adapter les domaines GitHub Pages, les liens entre produits, les sitemaps et les URL canoniques.
 - [x] Informer les utilisateurs de la réinstallation de la PWA depuis la nouvelle adresse Threnyx.
+- [ ] Vérifier le connecteur Semrush et relever les données initiales de visibilité de Threnyx.
+- [ ] Identifier les mots-clés, requêtes et contenus à potentiel sur la messagerie privée.
+- [ ] Mettre à jour la landing avec des contenus SEO utiles et vérifiables, sans promesses d’anonymat excessives.
+- [ ] Contrôler les signaux d’exploration publics et préparer les soumissions Google et Bing.
 
 ## Vérification en cours
 

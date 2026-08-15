@@ -9,6 +9,7 @@ import {
   Check,
   ChevronDown,
   Github,
+  HelpCircle,
   KeyRound,
   LockKeyhole,
   Menu,
@@ -32,6 +33,29 @@ const reveal = {
   hidden: { opacity: 0, y: 24 },
   visible: { opacity: 1, y: 0 },
 };
+
+const faqs = [
+  {
+    question: "Threnyx demande-t-il un numéro de téléphone ?",
+    answer: "Non. Threnyx crée une identité locale sur votre appareil pour commencer une conversation. Vous partagez ensuite votre point de contact par QR, lien direct ou carte NFC compatible, selon ce que vous choisissez.",
+  },
+  {
+    question: "Les messages Threnyx sont-ils privés ?",
+    answer: "Le contenu des messages et médias est chiffré avant de circuler. Threnyx vise aussi à limiter les informations demandées au départ : pas de synchronisation de contacts imposée et pas de numéro de téléphone nécessaire. Aucun outil ne rend toutefois une personne invisible à lui seul : le navigateur, l’appareil, le réseau et les usages comptent aussi.",
+  },
+  {
+    question: "Threnyx est-il une application ou un site web ?",
+    answer: "C’est une application web installable. Sur un navigateur compatible, notamment Chrome Android, vous pouvez l’installer pour l’ouvrir comme une application. Elle propose les messages, images, notes vocales et appels audio ou vidéo.",
+  },
+  {
+    question: "Comment ajouter un contact sur Threnyx ?",
+    answer: "Vous choisissez votre méthode : QR code, lien direct ou tag NFC NDEF. Les cartes NFC physiques sont pratiques pour transmettre une carte de contact ; entre deux téléphones, le QR code reste le moyen direct prévu.",
+  },
+  {
+    question: "Pour qui Threnyx peut-il être utile ?",
+    answer: "Threnyx s’adresse aux personnes qui souhaitent commencer une conversation sans fournir de numéro de téléphone ni importer leur carnet d’adresses, tout en gardant une interface de messagerie, de partage et d’appel au même endroit.",
+  },
+];
 
 function AsciiNetwork() {
   return (
@@ -76,6 +100,7 @@ export default function Home() {
           <a href="#pourquoi" onClick={closeMenu}>Pourquoi</a>
           <a href="#protocole" onClick={closeMenu}>Comment ça marche</a>
           <a href="#comparatif" onClick={closeMenu}>Comparatif</a>
+          <a href="#questions" onClick={closeMenu}>Questions</a>
           <a className="nav-cta" href={APP_URL} target="_blank" rel="noreferrer" onClick={closeMenu}>
             Ouvrir l’app <ArrowUpRight size={15} />
           </a>
@@ -197,6 +222,24 @@ export default function Home() {
             ].map(([label, mesh, other]) => <div className="comparison-row" role="row" key={label}><span role="cell">{label}</span><span role="cell"><Check size={16} /> {mesh}</span><span role="cell">{other}</span></div>)}
           </div>
           <p className="comparison-note section-inner">Threnyx ne promet pas l’invisibilité totale : aucun outil ne le peut seul. Il vous aide à limiter les informations que vous donnez dès le départ.</p>
+        </section>
+
+        <section className="faq section-light" id="questions">
+          <div className="section-inner faq-head">
+            <SectionLabel number="05">QUESTIONS CLAIRES</SectionLabel>
+            <div>
+              <h2>Ce qu’il faut savoir<br /><i>avant d’ouvrir la ligne.</i></h2>
+              <p>Des réponses directes sur l’identité, la confidentialité, l’installation et le partage de contacts.</p>
+            </div>
+          </div>
+          <div className="section-inner faq-list">
+            {faqs.map((item, index) => (
+              <details className="faq-item" key={item.question}>
+                <summary><span>0{index + 1}</span><strong>{item.question}</strong><HelpCircle size={19} aria-hidden="true" /></summary>
+                <p>{item.answer}</p>
+              </details>
+            ))}
+          </div>
         </section>
 
         <section className="final-cta section-dark">
