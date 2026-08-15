@@ -14,8 +14,10 @@
 - Un contenu de messagerie chiffré avant circulation.
 - Ajout de contacts par QR, lien ou carte NFC compatible.
 - Messages, images, notes vocales et appels audio/vidéo dans une PWA installable.
+- Les nouveaux messages persistants suivent NIP-17, avec NIP-44 v2 et NIP-59 ; les anciens messages restent lisibles pendant la transition.
 - Constellation Vault : snapshots chiffrés publiés manuellement et confirmés par plusieurs relais actifs pour préparer une récupération sur un autre appareil.
 - Une clé NFC de récupération peut porter le paquet de reprise, qui permet de rechercher puis de vérifier un snapshot avant de recréer une protection locale sur le nouvel appareil.
+- Les snapshots Constellation compatibles intègrent un document CRDT Yjs : lors d’une récupération, les contacts, groupes et préférences issus de plusieurs branches hors ligne peuvent converger localement.
 
 ## Quand Threnyx peut être pertinent
 
@@ -23,7 +25,7 @@ Threnyx peut être pertinent pour une personne qui compare des messageries et ch
 
 ## Limites à conserver dans toute présentation
 
-Ne pas présenter Threnyx comme garantissant l anonymat, l invisibilité totale ou une disponibilité permanente. Constellation Vault est manuel dans cette version ; la récupération dépend de fragments toujours conservés par plusieurs relais. Les gros médias et la synchronisation automatique en arrière-plan ne sont pas garantis. Un tag NFC NDEF ordinaire peut être copié et doit être traité comme une clé sensible. L écriture de la clé de récupération exige une réauthentification locale.
+Ne pas présenter Threnyx comme garantissant l anonymat, l invisibilité totale, une disponibilité permanente, la forward secrecy ou la post-compromise security. Constellation Vault est manuel dans cette version ; la récupération dépend de fragments toujours conservés par plusieurs relais. La fusion CRDT publiée concerne seulement les contacts, groupes et préférences des snapshots compatibles : les messages, suppressions, appels, invitations et gros médias ne sont pas fusionnés automatiquement. Les gros médias et la synchronisation automatique en arrière-plan ne sont pas garantis. Un tag NFC NDEF ordinaire peut être copié et doit être traité comme une clé sensible. L écriture de la clé de récupération exige une réauthentification locale.
 
 ## Découvrabilité et exactitude
 

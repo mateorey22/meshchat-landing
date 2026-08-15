@@ -59,6 +59,14 @@ const faqs = [
     question: "Puis-je retrouver mon identité sur un nouvel appareil ?",
     answer: "Constellation Vault propose un snapshot chiffré publié manuellement sur plusieurs relais, puis une restauration contrôlée depuis un nouvel appareil. Une clé NFC peut porter la clé de reprise, mais un tag NDEF classique est un objet à protéger : il peut être copié. La synchronisation automatique en arrière-plan et la disponibilité des gros médias ne sont pas garanties dans cette première version.",
   },
+  {
+    question: "Que se passe-t-il si deux appareils ont changé des données hors ligne ?",
+    answer: "Pour les snapshots Constellation compatibles, Threnyx fusionne automatiquement les contacts, groupes et préférences grâce à un document CRDT local. Les messages, appels, invitations, suppressions et gros médias ne font pas partie de cette fusion automatique à ce stade.",
+  },
+  {
+    question: "Le chiffrement offre-t-il une confidentialité persistante ?",
+    answer: "Les nouveaux messages persistants suivent NIP-17, avec NIP-44 v2 et NIP-59. Cette évolution améliore la standardisation et l’interopérabilité, mais elle n’apporte pas de forward secrecy : Threnyx ne la revendique pas.",
+  },
 ];
 
 function AsciiNetwork() {
@@ -191,7 +199,7 @@ export default function Home() {
             {[
               ["01", "Créez votre identité", "Une identité locale est générée sur votre appareil. Vous pouvez la protéger par empreinte ou Face ID."],
               ["02", "Ajoutez un contact", "Partagez votre carte par QR, lien ou carte NFC. Vous restez en contrôle de qui entre dans votre réseau."],
-              ["03", "Échangez directement", "Le contenu est chiffré. Quand le réseau le permet, l’échange bascule directement entre les appareils."],
+              ["03", "Échangez directement", "Les nouveaux messages persistants suivent les formats Nostr NIP-17, NIP-44 v2 et NIP-59. Quand le réseau le permet, l’échange bascule directement entre les appareils."],
               ["04", "Gardez le rythme", "Messages, photos, notes vocales et appels fonctionnent dans la même interface, sans ajouter d’exposition inutile."],
             ].map(([num, title, text], index) => <motion.article className="transmission-step" key={num} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.35 }} variants={reveal} transition={{ duration: 0.45, delay: index * 0.08 }}>
               <span className="step-num">{num}</span><div className="step-socket"><i /></div><div><h3>{title}</h3><p>{text}</p></div>
@@ -216,13 +224,13 @@ export default function Home() {
             <SectionLabel number="04">CONSTELLATION VAULT · BÊTA TECHNIQUE</SectionLabel>
             <div>
               <h2>Votre ligne ne devrait pas s’arrêter<br /><i>à un seul appareil.</i></h2>
-              <p>Constellation Vault prépare une continuité chiffrée entre vos appareils. Vous publiez volontairement un snapshot : Threnyx le chiffre, le fragmente et attend la confirmation de plusieurs relais avant de le considérer comme répliqué.</p>
+              <p>Constellation Vault prépare une continuité chiffrée entre vos appareils. Vous publiez volontairement un snapshot : Threnyx le chiffre, le fragmente et attend la confirmation de plusieurs relais avant de le considérer comme répliqué. Lorsque des snapshots compatibles divergent hors ligne, les données de contacts, groupes et préférences peuvent maintenant converger localement.</p>
             </div>
           </div>
           <div className="constellation-grid section-inner">
             {[
-              { code: "01", icon: LockKeyhole, title: "D’abord chiffrer", text: "Contacts, conversations et petits médias du coffre local sont assemblés avant chiffrement. Les relais reçoivent des fragments opaques, pas une base de données lisible." },
-              { code: "02", icon: Network, title: "Puis répartir", text: "Un manifeste signé indique quels fragments restaurer. Threnyx exige des confirmations de plusieurs relais actifs ; aucun relais unique ne devient votre compte central." },
+              { code: "01", icon: LockKeyhole, title: "D’abord chiffrer", text: "Le snapshot est chiffré avant publication. Les relais reçoivent des fragments opaques, pas une base de données lisible." },
+              { code: "02", icon: Network, title: "Puis répartir et converger", text: "Un manifeste signé indique quels fragments restaurer. Pour les branches compatibles, un document CRDT Yjs fusionne localement contacts, groupes et préférences au lieu d’écraser un ajout hors ligne." },
               { code: "03", icon: KeyRound, title: "Reprendre avec prudence", text: "Une clé NFC de récupération peut chercher le snapshot depuis un appareil neuf, puis créer une nouvelle protection locale. Un tag NFC NDEF peut être copié : gardez-le comme une clé, jamais comme un badge." },
             ].map((item, index) => {
               const Icon = item.icon;
@@ -231,7 +239,7 @@ export default function Home() {
               </motion.article>;
             })}
           </div>
-          <div className="section-inner constellation-note"><span>LECTURE HONNÊTE</span><p>Le snapshot, la restauration depuis plusieurs relais et le parcours sur un tag NFC physique Chrome Android ont été validés avec une identité de contrôle. La publication reste manuelle dans cette version ; une PWA ne garantit pas une synchronisation en arrière-plan, et les gros médias ne sont pas encore promis comme disponibles durablement.</p></div>
+          <div className="section-inner constellation-note"><span>LECTURE HONNÊTE</span><p>Le snapshot, la restauration depuis plusieurs relais et le parcours sur un tag NFC physique Chrome Android ont été validés avec une identité de contrôle. Les nouveaux messages persistants suivent NIP-17, NIP-44 v2 et NIP-59, sans promesse de forward secrecy. La publication reste manuelle ; une PWA ne garantit pas une synchronisation en arrière-plan. La fusion CRDT ne couvre pas encore les messages, suppressions ni les gros médias, qui ne sont pas promis comme disponibles durablement.</p></div>
         </section>
 
         <section className="compare section-light" id="comparatif">
