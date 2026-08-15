@@ -26,3 +26,18 @@
 ## Vérification en cours
 
 Le premier écran de création de compte se charge correctement en local : nom d’agent, statut facultatif, portrait optionnel et passage vers l’étape de protection sont disponibles. Dans l’aperçu local, qui n’offre pas d’authentificateur de plateforme, le parcours bascule correctement vers la phrase secrète au lieu de proposer une biométrie non fonctionnelle. La version publique GitHub Pages sert également le nouvel écran d’inscription en trois étapes.
+
+## Régression à corriger après retrait du laboratoire local
+
+- [ ] Vérifier la détection de l’identité existante sans effacer IndexedDB ni les identifiants WebAuthn.
+- [ ] Rétablir le déclenchement biométrique automatique lorsque le coffre possède déjà une clé PRF.
+- [ ] Vérifier le parcours de création d’identité et publier uniquement un correctif de stabilité.
+
+## Synchronisation décentralisée et clé de récupération NFC
+
+- [x] Comparer IPFS, Nostr, Hypercore et les primitives navigateur pour une réplication chiffrée compatible PWA.
+- [x] Définir un protocole Threnyx de manifestes chiffrés, fragments répliqués et journal de synchronisation multi-appareils.
+- [x] Implémenter un premier noyau de sauvegarde chiffrée répliquée et de synchronisation entre appareils Threnyx.
+- [x] Concevoir une clé NFC physique de récupération qui ne contient jamais l’identité ni les données en clair.
+- [ ] Tester la lecture et l’écriture de la clé NFC sur un tag physique avec Chrome Android ; les tests de relais, de récupération sur nouvel appareil simulé, de clé altérée et d’intégrité sont terminés.
+- [x] Documenter les garanties et limites vérifiables avant toute présentation publique sur la landing.

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <meta name="description" content="Threnyx, la messagerie qui vous laisse garder vos conversations pour vous." />
+    <meta name="description" content="Threnyx est une messagerie privée sans numéro de téléphone, avec identité locale, échanges chiffrés et snapshots Constellation manuels pour préparer la continuité entre appareils." />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="theme-color" content="#0a0b0b" />
@@ -17,12 +17,12 @@
     <meta property="og:locale" content="fr_FR" />
     <meta property="og:site_name" content="Threnyx" />
     <meta property="og:title" content="Threnyx — Messagerie privée, sans piste" />
-    <meta property="og:description" content="Une messagerie privée sans numéro de téléphone, conçue pour échanger, appeler et partager sans confier votre identité à une plateforme centrale." />
+    <meta property="og:description" content="Messagerie privée sans numéro de téléphone, identité locale et snapshots chiffrés manuels pour préparer la continuité entre appareils." />
     <meta property="og:url" content="https://mateorey22.github.io/threnyx-landing/" />
     <meta property="og:image" content="https://files.manuscdn.com/user_upload_by_module/session_file/92875856/mKGaociWMqfNBuFS.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Threnyx — Messagerie privée, sans piste" />
-    <meta name="twitter:description" content="Messagerie privée, identité locale et échanges chiffrés, sans numéro de téléphone." />
+    <meta name="twitter:description" content="Messagerie privée, identité locale et snapshots chiffrés manuels, sans numéro de téléphone." />
     <meta name="twitter:image" content="https://files.manuscdn.com/user_upload_by_module/session_file/92875856/mKGaociWMqfNBuFS.jpg" />
     <title>Threnyx — Messagerie privée, sans piste</title>
     <script type="application/ld+json">
@@ -45,7 +45,7 @@
             "applicationCategory": "CommunicationApplication",
             "operatingSystem": "Web",
             "browserRequirements": "Navigateur web moderne avec JavaScript activé",
-            "description": "Messagerie privée basée sur une identité locale, le chiffrement de contenu et le partage de contact par QR, lien ou NFC.",
+            "description": "Messagerie privée basée sur une identité locale, le chiffrement de contenu, le partage de contact par QR, lien ou NFC et des snapshots chiffrés manuels de continuité entre appareils.",
             "inLanguage": "fr-FR",
             "image": "https://files.manuscdn.com/user_upload_by_module/session_file/92875856/mKGaociWMqfNBuFS.jpg",
             "sameAs": "https://github.com/mateorey22/threnyx"
@@ -73,6 +73,11 @@
                 "@type": "Question",
                 "name": "Comment ajouter un contact sur Threnyx ?",
                 "acceptedAnswer": {"@type": "Answer", "text": "Vous pouvez partager un contact avec un QR code, un lien direct ou un tag NFC NDEF compatible."}
+              },
+              {
+                "@type": "Question",
+                "name": "Puis-je retrouver mon identité sur un nouvel appareil ?",
+                "acceptedAnswer": {"@type": "Answer", "text": "Constellation Vault propose un snapshot chiffré publié manuellement sur plusieurs relais. Une clé NFC peut porter la clé de reprise, mais un tag NDEF classique est un objet à protéger car il peut être copié. La synchronisation automatique en arrière-plan et la disponibilité des gros médias ne sont pas garanties dans cette première version."}
               }
             ]
           }

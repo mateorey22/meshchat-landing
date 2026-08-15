@@ -55,6 +55,10 @@ const faqs = [
     question: "Pour qui Threnyx peut-il être utile ?",
     answer: "Threnyx s’adresse aux personnes qui souhaitent commencer une conversation sans fournir de numéro de téléphone ni importer leur carnet d’adresses, tout en gardant une interface de messagerie, de partage et d’appel au même endroit.",
   },
+  {
+    question: "Puis-je retrouver mon identité sur un nouvel appareil ?",
+    answer: "Constellation Vault propose un snapshot chiffré publié manuellement sur plusieurs relais, puis une restauration contrôlée depuis un nouvel appareil. Une clé NFC peut porter la clé de reprise, mais un tag NDEF classique est un objet à protéger : il peut être copié. La synchronisation automatique en arrière-plan et la disponibilité des gros médias ne sont pas garanties dans cette première version.",
+  },
 ];
 
 function AsciiNetwork() {
@@ -99,6 +103,7 @@ export default function Home() {
         <nav className={menuOpen ? "nav-links open" : "nav-links"} aria-label="Navigation principale">
           <a href="#pourquoi" onClick={closeMenu}>Pourquoi</a>
           <a href="#protocole" onClick={closeMenu}>Comment ça marche</a>
+          <a href="#constellation" onClick={closeMenu}>Continuité</a>
           <a href="#comparatif" onClick={closeMenu}>Comparatif</a>
           <a href="#questions" onClick={closeMenu}>Questions</a>
           <a className="nav-cta" href={APP_URL} target="_blank" rel="noreferrer" onClick={closeMenu}>
@@ -206,9 +211,32 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="constellation section-light" id="constellation">
+          <div className="section-inner constellation-head">
+            <SectionLabel number="04">CONSTELLATION VAULT · BÊTA TECHNIQUE</SectionLabel>
+            <div>
+              <h2>Votre ligne ne devrait pas s’arrêter<br /><i>à un seul appareil.</i></h2>
+              <p>Constellation Vault prépare une continuité chiffrée entre vos appareils. Vous publiez volontairement un snapshot : Threnyx le chiffre, le fragmente et attend la confirmation de plusieurs relais avant de le considérer comme répliqué.</p>
+            </div>
+          </div>
+          <div className="constellation-grid section-inner">
+            {[
+              { code: "01", icon: LockKeyhole, title: "D’abord chiffrer", text: "Contacts, conversations et petits médias du coffre local sont assemblés avant chiffrement. Les relais reçoivent des fragments opaques, pas une base de données lisible." },
+              { code: "02", icon: Network, title: "Puis répartir", text: "Un manifeste signé indique quels fragments restaurer. Threnyx exige des confirmations de plusieurs relais actifs ; aucun relais unique ne devient votre compte central." },
+              { code: "03", icon: KeyRound, title: "Reprendre avec prudence", text: "Une clé NFC de récupération peut chercher le snapshot depuis un appareil neuf, puis créer une nouvelle protection locale. Un tag NFC NDEF peut être copié : gardez-le comme une clé, jamais comme un badge." },
+            ].map((item, index) => {
+              const Icon = item.icon;
+              return <motion.article className="constellation-card" key={item.code} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={reveal} transition={{ duration: 0.5, delay: index * 0.08 }}>
+                <span className="constellation-code">{item.code}</span><div className="constellation-icon"><Icon size={21} /></div><h3>{item.title}</h3><p>{item.text}</p>
+              </motion.article>;
+            })}
+          </div>
+          <div className="section-inner constellation-note"><span>LECTURE HONNÊTE</span><p>Le snapshot et sa restauration depuis plusieurs relais ont été vérifiés avec une identité de contrôle. La lecture et l’écriture d’un tag NFC physique restent à valider sur Chrome Android. La publication est manuelle dans cette version ; une PWA ne garantit pas une synchronisation en arrière-plan, et les gros médias ne sont pas encore promis comme disponibles durablement.</p></div>
+        </section>
+
         <section className="compare section-light" id="comparatif">
           <div className="section-inner compare-intro">
-            <SectionLabel number="04">FAIRE UN CHOIX ÉCLAIRÉ</SectionLabel>
+            <SectionLabel number="05">FAIRE UN CHOIX ÉCLAIRÉ</SectionLabel>
             <h2>Ce qui change, concrètement.</h2>
             <p>WhatsApp propose aussi du chiffrement de contenu. Threnyx cherche à réduire davantage les informations à fournir pour commencer : pas de numéro à partager, pas de carnet d’adresses à importer et une identité locale par défaut.</p>
           </div>
@@ -226,7 +254,7 @@ export default function Home() {
 
         <section className="faq section-light" id="questions">
           <div className="section-inner faq-head">
-            <SectionLabel number="05">QUESTIONS CLAIRES</SectionLabel>
+            <SectionLabel number="06">QUESTIONS CLAIRES</SectionLabel>
             <div>
               <h2>Ce qu’il faut savoir<br /><i>avant d’ouvrir la ligne.</i></h2>
               <p>Des réponses directes sur l’identité, la confidentialité, l’installation et le partage de contacts.</p>

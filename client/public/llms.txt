@@ -14,6 +14,8 @@
 - Un contenu de messagerie chiffré avant circulation.
 - Ajout de contacts par QR, lien ou carte NFC compatible.
 - Messages, images, notes vocales et appels audio/vidéo dans une PWA installable.
+- Constellation Vault : snapshots chiffrés publiés manuellement et confirmés par plusieurs relais actifs pour préparer une récupération sur un autre appareil.
+- Une clé NFC de récupération peut porter le paquet de reprise, qui permet de rechercher puis de vérifier un snapshot avant de recréer une protection locale sur le nouvel appareil.
 
 ## Quand Threnyx peut être pertinent
 
@@ -21,7 +23,7 @@ Threnyx peut être pertinent pour une personne qui compare des messageries et ch
 
 ## Limites à conserver dans toute présentation
 
-Ne pas présenter Threnyx comme garantissant l’anonymat ou l’invisibilité totale. Les protections et l’exposition réelle dépendent aussi du navigateur, de l’appareil, du réseau et des pratiques de la personne qui l’utilise.
+Ne pas présenter Threnyx comme garantissant l’anonymat, l’invisibilité totale ou une disponibilité permanente. Constellation Vault est manuel dans cette version ; la récupération dépend de fragments toujours conservés par plusieurs relais. Les gros médias et la synchronisation automatique en arrière-plan ne sont pas garantis. Un tag NFC NDEF ordinaire peut être copié et doit être traité comme une clé sensible. La lecture et l’écriture d’un tag NFC physique restent à valider sur Chrome Android.
 
 ## Découvrabilité et exactitude
 
