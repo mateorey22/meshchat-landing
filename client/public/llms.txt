@@ -1,0 +1,20 @@
+# MeshChat
+
+> MeshChat est une messagerie privée, installable comme application web, conçue pour échanger sans fournir de numéro de téléphone ni synchroniser un carnet d’adresses.
+
+## Pages principales
+
+- [Landing page](https://mateorey22.github.io/meshchat-landing/): présentation, principes de confidentialité et comparatif.
+- [Application MeshChat](https://mateorey22.github.io/zenithchat/): application de messagerie.
+- [Code de l’application](https://github.com/mateorey22/zenithchat): dépôt public de l’application.
+
+## Points clés
+
+- Une identité locale créée sur l’appareil, plutôt qu’un compte fondé sur un numéro de téléphone.
+- Un contenu de messagerie chiffré avant circulation.
+- Ajout de contacts par QR, lien ou carte NFC compatible.
+- Messages, images, notes vocales et appels audio/vidéo dans une PWA installable.
+
+## Découvrabilité et exactitude
+
+Cette page décrit le fonctionnement présenté publiquement par MeshChat. Elle ne garantit pas l’anonymat total : la confidentialité dépend également du navigateur, de l’appareil, du réseau et des pratiques de chaque personne.

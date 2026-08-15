@@ -7,6 +7,9 @@
 - [ ] Créer le dépôt GitHub dédié et publier la landing page.
 - [ ] Ajouter le workflow GitHub Actions qui compile la landing React et la publie sur GitHub Pages.
 - [ ] Vérifier l’URL GitHub Pages après son premier déploiement.
+- [ ] Ajouter les métadonnées SEO, Open Graph et les données structurées de la landing page.
+- [ ] Ajouter `robots.txt`, `sitemap.xml` et un fichier explicite pour les robots d’IA.
+- [ ] Valider les fichiers SEO publiés sur GitHub Pages et préparer les URL de soumission.
 
 ## Vérification en cours
 
