@@ -8,7 +8,6 @@ import {
   ArrowUpRight,
   Check,
   ChevronDown,
-  Cpu,
   Github,
   HelpCircle,
   KeyRound,
@@ -17,10 +16,8 @@ import {
   MessageSquareText,
   Network,
   Radio,
-  Search,
   ShieldCheck,
   Smartphone,
-  Subtitles,
   X,
   Zap,
 } from "lucide-react";
@@ -57,14 +54,6 @@ const faqs = [
   {
     question: "Pour qui Threnyx peut-il être utile ?",
     answer: "Threnyx s’adresse aux personnes qui souhaitent commencer une conversation sans fournir de numéro de téléphone ni importer leur carnet d’adresses, tout en gardant une interface de messagerie, de partage et d’appel au même endroit.",
-  },
-  {
-    question: "L’assistant IA de Threnyx lit-il mes conversations ?",
-    answer: "Non. Le laboratoire d’intelligence locale est désactivé par défaut. Un modèle ne se télécharge qu’après votre action et l’assistant ne reçoit que le texte que vous saisissez ou les extraits d’un chat que vous choisissez explicitement d’analyser sur votre appareil.",
-  },
-  {
-    question: "Les sous-titres et la traduction sont-ils déjà disponibles ?",
-    answer: "Threnyx propose un mode expérimental de sous-titres pour votre microphone local, avec traduction locale optionnelle sur les navigateurs de bureau compatibles. Il ne transcrit pas encore automatiquement la voix distante et ne bascule pas vers un service cloud si le traitement local n’est pas disponible.",
   },
 ];
 
@@ -217,26 +206,9 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="local-intelligence section-light" id="local">
-          <div className="section-inner local-intelligence-head">
-            <SectionLabel number="04">INTELLIGENCE, SANS RELAIS</SectionLabel>
-            <div>
-              <p className="eyebrow"><Cpu size={15} /> LABORATOIRE LOCAL · OPT-IN</p>
-              <h2>Un modèle peut rester<br /><i>dans votre appareil.</i></h2>
-              <p>Le laboratoire Threnyx ne s’active jamais tout seul. Il vérifie la compatibilité du navigateur, télécharge un modèle local uniquement après votre clic et ne transmet pas les contenus de conversation à un serveur d’inférence.</p>
-            </div>
-          </div>
-          <div className="section-inner local-grid">
-            <article className="local-card"><Cpu size={24} /><span>01 · LIVRÉ</span><h3>Assistant local optionnel</h3><p>Un petit modèle WebGPU peut traiter une question saisie volontairement. Sur certains navigateurs de bureau, le modèle intégré du navigateur peut aussi être utilisé.</p></article>
-            <article className="local-card"><Search size={24} /><span>02 · LIVRÉ</span><h3>Recherche dans un chat choisi</h3><p>Vous pouvez demander une recherche dans les derniers messages textuels d’une conversation active. L’analyse reste dans l’appareil et aucun index en clair n’est conservé.</p></article>
-            <article className="local-card"><Subtitles size={24} /><span>03 · EXPÉRIMENTAL</span><h3>Sous-titres locaux</h3><p>Le mode sous-titres utilise uniquement les packs hors ligne du navigateur pour votre micro. La traduction est proposée lorsque les modèles locaux de langue existent.</p></article>
-          </div>
-          <p className="section-inner local-note">Filtres AR, index sémantique par embeddings et alerte de deepfake vocal ne sont pas présentés comme actifs. Threnyx les garde en évaluation jusqu’à disposer d’un traitement local et de limites de fiabilité clairement vérifiés.</p>
-        </section>
-
         <section className="compare section-light" id="comparatif">
           <div className="section-inner compare-intro">
-            <SectionLabel number="05">FAIRE UN CHOIX ÉCLAIRÉ</SectionLabel>
+            <SectionLabel number="04">FAIRE UN CHOIX ÉCLAIRÉ</SectionLabel>
             <h2>Ce qui change, concrètement.</h2>
             <p>WhatsApp propose aussi du chiffrement de contenu. Threnyx cherche à réduire davantage les informations à fournir pour commencer : pas de numéro à partager, pas de carnet d’adresses à importer et une identité locale par défaut.</p>
           </div>
@@ -254,7 +226,7 @@ export default function Home() {
 
         <section className="faq section-light" id="questions">
           <div className="section-inner faq-head">
-            <SectionLabel number="06">QUESTIONS CLAIRES</SectionLabel>
+            <SectionLabel number="05">QUESTIONS CLAIRES</SectionLabel>
             <div>
               <h2>Ce qu’il faut savoir<br /><i>avant d’ouvrir la ligne.</i></h2>
               <p>Des réponses directes sur l’identité, la confidentialité, l’installation et le partage de contacts.</p>
