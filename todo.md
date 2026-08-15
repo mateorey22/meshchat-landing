@@ -97,3 +97,6 @@ Constellation Vault ne diffuse pas le compte en clair chez tous les relais : les
 
 - [x] Ajouter et exécuter un test déterministe de format GC1, séparation MC1/TCV1, quota et révocation.
 - [ ] Ajouter un test navigateur multi-appareils couvrant l’Outbox, l’accusé GC1 et la jointure réelle après reconnexion.
+
+- [x] Vérifier publiquement HTTPS que GitHub Pages sert le service worker `threnyx-pwa-v20`.
+- [ ] Tester sur appareil la configuration du code de détresse et son déclenchement sans ouverture du coffre.
