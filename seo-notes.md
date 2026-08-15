@@ -15,3 +15,14 @@ Pour les assistants OpenAI, le fichier `robots.txt` autorise explicitement `OAI-
 [3] [Google Search Central — Données structurées](https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data)
 
 [4] [OpenAI — Overview of OpenAI Crawlers](https://developers.openai.com/api/docs/bots)
+
+## Contrôle public du 15 août 2026
+
+Le workflow GitHub Pages du commit `285ee45` s’est terminé avec succès. Les ressources suivantes sont publiquement accessibles :
+
+| Ressource | URL publique | Résultat |
+|---|---|---|
+| Landing page | https://mateorey22.github.io/meshchat-landing/ | Contenu HTML lisible et liens internes présents |
+| Règles d’exploration | https://mateorey22.github.io/meshchat-landing/robots.txt | Exploration ouverte et sitemap déclaré |
+| Sitemap | https://mateorey22.github.io/meshchat-landing/sitemap.xml | URL canonique déclarée |
+| Guide pour robots d’IA | https://mateorey22.github.io/meshchat-landing/llms.txt | Présentation, liens et limites explicites |
