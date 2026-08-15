@@ -68,6 +68,8 @@ Constellation Vault ne diffuse pas le compte en clair chez tous les relais : les
 - [x] Évaluer un transport MLS/NIP-EE sans annoncer de forward secrecy tant que l’état de groupe et la rotation sont validés.
 - [ ] Concevoir un document CRDT chiffré pour contacts, groupes, messages et préférences Constellation.
 - [ ] Tester des modifications concurrentes hors ligne, la fusion, la réplication chiffrée et la récupération NFC.
+- [x] Valider localement v18 deux branches Yjs chiffrées, signées comme fragments Nostr, relues puis fusionnées avant restauration.
+- [ ] Revalider sur tag NFC physique et plusieurs relais la récupération v18 de branches CRDT concurrentes.
 - [x] Mettre à jour la documentation et les formulations publiques avec les garanties réellement validées.
 - [x] Mettre à jour la landing Threnyx et son fichier pour assistants IA avec la migration NIP-17 et la convergence Yjs effectivement publiées.
 - [ ] Définir une politique de tombstones, de rétention et d’union immuable avant toute fusion CRDT des messages, suppressions et médias.
