@@ -1,4 +1,4 @@
-# Directions de design — Landing page MeshChat
+# Directions de design — Landing page Threnyx
 
 ## Trois approches envisagées
 
@@ -26,10 +26,10 @@
 
 **Système typographique.** `Space Grotesk` structure les titres avec densité et présence ; `IBM Plex Mono` sert aux métadonnées, preuves et détails de protocole. Les titres sont très larges mais à chasse contrôlée ; le texte courant garde une ligne généreuse et une taille mobile confortable.
 
-**Essence de marque.** MeshChat est la messagerie pour les personnes qui veulent échanger sans laisser leur vie sociale dans une base de données centrale. Personnalité : souveraine, claire, attentive.
+**Essence de marque.** Threnyx est la messagerie pour les personnes qui veulent échanger sans laisser leur vie sociale dans une base de données centrale. Personnalité : souveraine, claire, attentive.
 
 **Voix de marque.** Les titres sont nets et humains, les CTA invitent à un choix concret, les microcopies expliquent sans jargon gratuit. Exemples : « Vos conversations ne sont pas notre produit. » et « Envoyer un message ne devrait pas exposer votre réseau. »
 
-**Mot-symbole et logo.** Un monogramme « M » fragmenté en trois segments de liaison, inspiré d’un maillage radio et d’un curseur de terminal ; jamais une simple police par défaut. Le mot-symbole est traité en capitale espacée avec des connecteurs discrets.
+**Mot-symbole et logo.** L’emblème **Silent Orbit** : une graine charbon protégée par une orbite parchemin interrompue, traversée par un éclat cuivre diagonal. Il ne contient aucune lettre et reste reconnaissable à très petite taille ; le mot-symbole THRENYX est traité en capitale espacée avec des connecteurs discrets.
 
 **Couleur signature.** `Cuivre Signal` — `#E8833A` — une chaleur visible dans un univers de réseau sombre, réservée aux états actifs et aux gestes importants.

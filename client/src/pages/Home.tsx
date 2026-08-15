@@ -1,5 +1,5 @@
 /**
- * Terminal de Confiance — landing MeshChat : noir volcanique, parchemin minéral,
+ * Terminal de Confiance — landing Threnyx : noir volcanique, parchemin minéral,
  * cuivre signal et narration en fil de transmission. Chaque détail doit renforcer
  * la sensation d’une messagerie calme, souveraine et lisible.
  */
@@ -22,8 +22,8 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 
-const APP_URL = "https://mateorey22.github.io/zenithchat/";
-const markUrl = "https://files.manuscdn.com/user_upload_by_module/session_file/92875856/yKdeYtsrEZUCUkbp.png";
+const APP_URL = "https://mateorey22.github.io/threnyx/";
+const markUrl = "https://files.manuscdn.com/user_upload_by_module/session_file/92875856/eIpWjvCzmTfyQygq.png";
 const heroImage = "https://files.manuscdn.com/user_upload_by_module/session_file/92875856/mKGaociWMqfNBuFS.jpg";
 const privacyImage = "https://files.manuscdn.com/user_upload_by_module/session_file/92875856/xayYzWyvYgnXzRpK.jpg";
 const callImage = "https://files.manuscdn.com/user_upload_by_module/session_file/92875856/oUazlhvpiIJBqKik.jpg";
@@ -68,9 +68,9 @@ export default function Home() {
     <div className="site-shell">
       <div className="page-grain" aria-hidden="true" />
       <header className="topbar">
-        <a className="brand" href="#top" aria-label="MeshChat, accueil">
+        <a className="brand" href="#top" aria-label="Threnyx, accueil">
           <img src={markUrl} alt="" />
-          <span>MESHCHAT<em>///</em></span>
+          <span>THRENYX<em>///</em></span>
         </a>
         <nav className={menuOpen ? "nav-links open" : "nav-links"} aria-label="Navigation principale">
           <a href="#pourquoi" onClick={closeMenu}>Pourquoi</a>
@@ -97,10 +97,10 @@ export default function Home() {
               Vos conversations<br /><i>ne sont pas</i> un produit.
             </motion.h1>
             <motion.p className="hero-lead" initial="hidden" animate="visible" variants={reveal} transition={{ duration: 0.6, delay: 0.16 }}>
-              MeshChat est une messagerie privée construite pour échanger, appeler et partager sans confier votre identité à une plateforme centrale.
+              Threnyx est une messagerie privée construite pour échanger, appeler et partager sans confier votre identité à une plateforme centrale.
             </motion.p>
             <motion.div className="hero-actions" initial="hidden" animate="visible" variants={reveal} transition={{ duration: 0.6, delay: 0.24 }}>
-              <a className="button button-primary" href={APP_URL} target="_blank" rel="noreferrer">Essayer MeshChat <ArrowUpRight size={19} /></a>
+              <a className="button button-primary" href={APP_URL} target="_blank" rel="noreferrer">Essayer Threnyx <ArrowUpRight size={19} /></a>
               <a className="button button-quiet" href="#pourquoi">Voir comment ça protège <ChevronDown size={18} /></a>
             </motion.div>
           </div>
@@ -117,7 +117,7 @@ export default function Home() {
             <SectionLabel number="01">LE POINT DE DÉPART</SectionLabel>
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={reveal} transition={{ duration: 0.55 }}>
               <h2>La vie privée n’est pas une option de réglage.</h2>
-              <p className="large-copy">Elle doit être le point de départ. MeshChat crée une identité locale, chiffre le contenu et ne demande pas votre numéro pour commencer une conversation.</p>
+              <p className="large-copy">Elle doit être le point de départ. Threnyx crée une identité locale, chiffre le contenu et ne demande pas votre numéro pour commencer une conversation.</p>
             </motion.div>
           </div>
           <div className="principles-grid section-inner">
@@ -142,7 +142,7 @@ export default function Home() {
           <div className="privacy-copy">
             <SectionLabel number="02">CE QUE VOUS NE DONNEZ PAS</SectionLabel>
             <h2>Pas besoin de livrer votre réseau social pour envoyer « salut ».</h2>
-            <p>MeshChat remplace le numéro de téléphone par une identité cryptographique. Vous choisissez comment partager ce point de contact : QR, carte NFC ou lien direct.</p>
+            <p>Threnyx remplace le numéro de téléphone par une identité cryptographique. Vous choisissez comment partager ce point de contact : QR, carte NFC ou lien direct.</p>
             <div className="data-list">
               <div><span>—</span><p><strong>Pas de numéro de téléphone</strong><br />Votre identité ne commence pas par une SIM.</p></div>
               <div><span>—</span><p><strong>Pas de synchronisation de contacts</strong><br />Vous ajoutez les personnes que vous décidez d’ajouter.</p></div>
@@ -155,7 +155,7 @@ export default function Home() {
           <div className="section-inner protocol-header">
             <SectionLabel number="03">SUIVRE UN MESSAGE</SectionLabel>
             <h2>Simple à utiliser.<br />Sérieux sous le capot.</h2>
-            <p>Pas besoin de comprendre le chiffrement pour protéger une conversation. Voici ce que MeshChat fait pour vous.</p>
+            <p>Pas besoin de comprendre le chiffrement pour protéger une conversation. Voici ce que Threnyx fait pour vous.</p>
           </div>
           <div className="transmission-line section-inner">
             {[
@@ -185,10 +185,10 @@ export default function Home() {
           <div className="section-inner compare-intro">
             <SectionLabel number="04">FAIRE UN CHOIX ÉCLAIRÉ</SectionLabel>
             <h2>Ce qui change, concrètement.</h2>
-            <p>WhatsApp propose aussi du chiffrement de contenu. MeshChat cherche à réduire davantage les informations à fournir pour commencer : pas de numéro à partager, pas de carnet d’adresses à importer et une identité locale par défaut.</p>
+            <p>WhatsApp propose aussi du chiffrement de contenu. Threnyx cherche à réduire davantage les informations à fournir pour commencer : pas de numéro à partager, pas de carnet d’adresses à importer et une identité locale par défaut.</p>
           </div>
-          <div className="comparison-table section-inner" role="table" aria-label="Comparatif entre MeshChat et une messagerie liée au téléphone">
-            <div className="comparison-row comparison-head" role="row"><span role="columnheader">VOUS COMMENCEZ AVEC</span><span role="columnheader">MESHCHAT</span><span role="columnheader">MESSAGERIE LIÉE AU TÉLÉPHONE</span></div>
+          <div className="comparison-table section-inner" role="table" aria-label="Comparatif entre Threnyx et une messagerie liée au téléphone">
+            <div className="comparison-row comparison-head" role="row"><span role="columnheader">VOUS COMMENCEZ AVEC</span><span role="columnheader">THRENYX</span><span role="columnheader">MESSAGERIE LIÉE AU TÉLÉPHONE</span></div>
             {[
               ["Identité", "Une clé publique créée localement", "Un numéro de téléphone"],
               ["Ajout de contacts", "QR, lien ou tag NFC choisi par vous", "Souvent via numéro et répertoire"],
@@ -196,7 +196,7 @@ export default function Home() {
               ["Point de contrôle", "Votre appareil et vos choix", "Un compte lié à un service central"],
             ].map(([label, mesh, other]) => <div className="comparison-row" role="row" key={label}><span role="cell">{label}</span><span role="cell"><Check size={16} /> {mesh}</span><span role="cell">{other}</span></div>)}
           </div>
-          <p className="comparison-note section-inner">MeshChat ne promet pas l’invisibilité totale : aucun outil ne le peut seul. Il vous aide à limiter les informations que vous donnez dès le départ.</p>
+          <p className="comparison-note section-inner">Threnyx ne promet pas l’invisibilité totale : aucun outil ne le peut seul. Il vous aide à limiter les informations que vous donnez dès le départ.</p>
         </section>
 
         <section className="final-cta section-dark">
@@ -204,15 +204,15 @@ export default function Home() {
           <div className="final-cta-inner">
             <p className="eyebrow"><Zap size={15} /> VOTRE LIGNE, VOTRE RYTHME</p>
             <h2>Envoyez le premier message<br />sans ouvrir une nouvelle piste.</h2>
-            <a className="button button-primary" href={APP_URL} target="_blank" rel="noreferrer">Ouvrir MeshChat <ArrowUpRight size={19} /></a>
+            <a className="button button-primary" href={APP_URL} target="_blank" rel="noreferrer">Ouvrir Threnyx <ArrowUpRight size={19} /></a>
           </div>
         </section>
       </main>
 
       <footer className="footer">
-        <a className="brand footer-brand" href="#top"><img src={markUrl} alt="" /><span>MESHCHAT<em>///</em></span></a>
+        <a className="brand footer-brand" href="#top"><img src={markUrl} alt="" /><span>THRENYX<em>///</em></span></a>
         <p>MESSAGERIE PRIVÉE · PWA · NOSTR-MESH</p>
-        <a className="footer-link" href="https://github.com/mateorey22/zenithchat" target="_blank" rel="noreferrer"><Github size={16} /> Voir le code</a>
+        <a className="footer-link" href="https://github.com/mateorey22/threnyx" target="_blank" rel="noreferrer"><Github size={16} /> Voir le code</a>
       </footer>
     </div>
   );

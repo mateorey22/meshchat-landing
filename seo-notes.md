@@ -1,4 +1,4 @@
-# Notes SEO — MeshChat Landing
+# Notes SEO — Threnyx Landing
 
 La landing doit rester entièrement accessible à l’exploration : aucun `noindex`, aucune ressource de rendu bloquée et un `robots.txt` à la racine avec un sitemap déclaré. Google précise que `robots.txt` gère l’accès d’exploration mais ne garantit ni inclusion ni exclusion de l’index ; les pages doivent donc rester publiques et comporter des signaux HTML explicites.[1]
 
@@ -22,7 +22,7 @@ Le workflow GitHub Pages du commit `285ee45` s’est terminé avec succès. Les 
 
 | Ressource | URL publique | Résultat |
 |---|---|---|
-| Landing page | https://mateorey22.github.io/meshchat-landing/ | Contenu HTML lisible et liens internes présents |
-| Règles d’exploration | https://mateorey22.github.io/meshchat-landing/robots.txt | Exploration ouverte et sitemap déclaré |
-| Sitemap | https://mateorey22.github.io/meshchat-landing/sitemap.xml | URL canonique déclarée |
-| Guide pour robots d’IA | https://mateorey22.github.io/meshchat-landing/llms.txt | Présentation, liens et limites explicites |
+| Landing page | https://mateorey22.github.io/threnyx-landing/ | Contenu HTML lisible et liens internes présents |
+| Règles d’exploration | https://mateorey22.github.io/threnyx-landing/robots.txt | Exploration ouverte et sitemap déclaré |
+| Sitemap | https://mateorey22.github.io/threnyx-landing/sitemap.xml | URL canonique déclarée |
+| Guide pour robots d’IA | https://mateorey22.github.io/threnyx-landing/llms.txt | Présentation, liens et limites explicites |

@@ -1,12 +1,12 @@
-# MeshChat
+# Threnyx
 
-> MeshChat est une messagerie privée, installable comme application web, conçue pour échanger sans fournir de numéro de téléphone ni synchroniser un carnet d’adresses.
+> Threnyx est une messagerie privée, installable comme application web, conçue pour échanger sans fournir de numéro de téléphone ni synchroniser un carnet d’adresses.
 
 ## Pages principales
 
-- [Landing page](https://mateorey22.github.io/meshchat-landing/): présentation, principes de confidentialité et comparatif.
-- [Application MeshChat](https://mateorey22.github.io/zenithchat/): application de messagerie.
-- [Code de l’application](https://github.com/mateorey22/zenithchat): dépôt public de l’application.
+- [Landing page](https://mateorey22.github.io/threnyx-landing/): présentation, principes de confidentialité et comparatif.
+- [Application Threnyx](https://mateorey22.github.io/threnyx/): application de messagerie.
+- [Code de l’application](https://github.com/mateorey22/threnyx): dépôt public de l’application.
 
 ## Points clés
 
@@ -17,4 +17,4 @@
 
 ## Découvrabilité et exactitude
 
-Cette page décrit le fonctionnement présenté publiquement par MeshChat. Elle ne garantit pas l’anonymat total : la confidentialité dépend également du navigateur, de l’appareil, du réseau et des pratiques de chaque personne.
+Cette page décrit le fonctionnement présenté publiquement par Threnyx. Elle ne garantit pas l’anonymat total : la confidentialité dépend également du navigateur, de l’appareil, du réseau et des pratiques de chaque personne.

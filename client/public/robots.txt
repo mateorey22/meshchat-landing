@@ -1,4 +1,4 @@
-# MeshChat Landing — exploration ouverte pour les moteurs et assistants d’IA.
+# Threnyx Landing — exploration ouverte pour les moteurs et assistants d’IA.
 User-agent: *
 Allow: /
 
@@ -40,4 +40,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://mateorey22.github.io/meshchat-landing/sitemap.xml
+Sitemap: https://mateorey22.github.io/threnyx-landing/sitemap.xml
