@@ -10,14 +10,14 @@
 - [x] Ajouter les métadonnées SEO, Open Graph et les données structurées de la landing page.
 - [x] Ajouter `robots.txt`, `sitemap.xml` et un fichier explicite pour les robots d’IA.
 - [x] Valider les fichiers SEO publiés sur GitHub Pages et préparer les URL de soumission.
-- [ ] Auditer toutes les occurrences de Threnyx et des assets de marque dans les deux projets.
-- [ ] Créer plusieurs propositions de logo minimaliste Threnyx et choisir une direction.
-- [ ] Appliquer le nom Threnyx, le logo retenu et les métadonnées associées à la landing, la PWA et leurs fichiers publics.
-- [ ] Actualiser les icônes PWA, le manifeste, les sitemaps et les documents de référencement.
-- [ ] Vérifier les deux déploiements publics après la migration de marque.
-- [ ] Renommer les dépôts GitHub historiques vers les dépôts Threnyx retenus.
-- [ ] Adapter les domaines GitHub Pages, les liens entre produits, les sitemaps et les URL canoniques.
-- [ ] Informer les utilisateurs de la réinstallation de la PWA depuis la nouvelle adresse Threnyx.
+- [x] Auditer toutes les occurrences de Threnyx et des assets de marque dans les deux projets.
+- [x] Créer plusieurs propositions de logo minimaliste Threnyx et choisir une direction.
+- [x] Appliquer le nom Threnyx, le logo retenu et les métadonnées associées à la landing, la PWA et leurs fichiers publics.
+- [x] Actualiser les icônes PWA, le manifeste, les sitemaps et les documents de référencement.
+- [x] Vérifier les deux déploiements publics après la migration de marque.
+- [x] Renommer les dépôts GitHub historiques vers les dépôts Threnyx retenus.
+- [x] Adapter les domaines GitHub Pages, les liens entre produits, les sitemaps et les URL canoniques.
+- [x] Informer les utilisateurs de la réinstallation de la PWA depuis la nouvelle adresse Threnyx.
 
 ## Vérification en cours
 
