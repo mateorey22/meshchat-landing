@@ -235,6 +235,7 @@ export default function Home() {
           <div className="controls-grid section-inner">
             {[
               { icon: ShieldAlert, title: "Wipe panique", text: "Un triple-tap discret sur la barre supérieure efface immédiatement votre identité et vos messages de l’appareil. Les données déjà publiées sur les relais ne sont pas effacées." },
+              { icon: KeyRound, title: "Code de détresse", text: "Un code distinct de la phrase secrète peut déclencher le wipe local sans ouvrir le coffre. Threnyx ne conserve que son hash séparé, jamais le code en clair." },
               { icon: Fingerprint, title: "Vérification d’empreinte", text: "Comparez l’empreinte cryptographique avec votre contact par un canal sûr. Un badge confirme la vérification et disparaît si la clé est modifiée." },
               { icon: MonitorSmartphone, title: "Appareils liés limités", text: "Le modèle de portée minimale est en validation : l’objectif est un QR temporaire, des scopes explicites et une révocation qui bloque les nouvelles synchronisations." },
               { icon: Users, title: "Invitations de groupe", text: "Le format GC1 sépare les invitations de groupe des cartes MC1 et des clés TCV1, avec expiration et révocation côté administrateur." },

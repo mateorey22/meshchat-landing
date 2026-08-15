@@ -19,6 +19,7 @@
 - Une clé NFC de récupération peut porter le paquet de reprise, qui permet de rechercher puis de vérifier un snapshot avant de recréer une protection locale sur le nouvel appareil.
 - Les snapshots Constellation compatibles intègrent un document CRDT Yjs : lors d’une récupération, les contacts, groupes et préférences issus de plusieurs branches hors ligne peuvent converger localement.
 - Un triple-tap rapide sur la topbar peut déclencher un wipe local d’urgence : il ferme les transports et efface le coffre de l’appareil, mais ne supprime pas ce qui a déjà été publié sur les relais.
+- Un code de détresse distinct de la phrase secrète peut déclencher le même wipe local au déverrouillage ; seul un hash séparé est conservé et le code n’est pas une récupération de compte.
 - La vérification de sécurité affiche le fingerprint d’un contact et permet une comparaison QR hors-bande ; elle réduit le risque de substitution de clé sans remplacer un canal de confiance.
 - Les appareils liés sont conçus avec une portée minimale et une révocation locale ; la révocation bloque les nouvelles synchronisations, sans effacer ce qui a déjà été reçu.
 - Les invitations de groupe utilisent un format distinct GC1 via QR/NFC, avec expiration et révocation séparées des cartes de contact MC1 et des clés de récupération TCV1.
