@@ -132,3 +132,29 @@ Constellation Vault ne diffuse pas le compte en clair chez tous les relais : les
 - [ ] Implémenter seulement les durcissements isolés validés par l’audit ; ne pas présenter l’application comme offrant forward secrecy ou post-compromise security avant validation complète.
 - [x] Publier `SECURITY.md`, une documentation du protocole et un rapport d’audit avec risques corrigés et risques restants.
 - [x] Ajouter un test de base CSP/chaîne de livraison/Nostr/coffre et supprimer la journalisation de l’objet d’erreur de démarrage.
+
+## Remédiations de session et communication publique demandées
+
+- [x] Inventorier tous les contrôles de sécurité restants demandés et les comparer à l’état réellement implémenté.
+- [x] Rechercher les normes, modèles de session et bibliothèques maintenues compatibles avec une PWA statique et les contraintes Nostr.
+- [x] Concevoir un pilote isolé de sessions à forward secrecy avec préclés, ratchet, anti-rejeu, persistance atomique et tests de propriétés.
+- [x] Implémenter les garde-fous testés : aucune migration silencieuse, aucune réplique Constellation d’état ratcheté et aucune annonce de forward secrecy sans qualification.
+- [x] Réviser la landing, les données structurées et la fiche destinée aux assistants IA avec les protections effectivement vérifiées et leurs limites.
+- [ ] Intégrer un pilote MLS/Marmot seulement après version épinglée corrigée, suite entièrement verte, tests de propriétés automatisés et revue indépendante.
+
+## Régression critique de démarrage v24
+
+- [x] Reproduire le blocage CSP démontré : une requête same-origin vers le service worker échouait avec `TypeError: Failed to fetch` sous `connect-src wss: blob:`.
+- [x] Corriger le défaut de démarrage avec le changement minimal, sans réduire la CSP ni les contrôles de coffre.
+- [x] Republier la PWA v25 et vérifier l’ouverture publique avec le nouveau service worker et les requêtes same-origin autorisées.
+- [ ] Ajouter une reproduction instrumentée du démarrage avec coffre existant et capture contrôlée d’une éventuelle exception de boot.
+- [ ] Ajouter un test navigateur de non-régression PWA avec service worker existant et récupération same-origin sous la CSP active.
+- [ ] Documenter dans les tests et le rapport d’audit la nécessité de `connect-src 'self'` pour les ressources internes PWA.
+
+## Régression v25 — parcours coffre et création de compte
+
+- [x] Reproduire le blocage du bouton « Continuer » sur un profil neuf/incognito et relever l’erreur de boot associée : le hash CSP v25 ne correspondait plus au script inline modifié, donc aucun gestionnaire d’onboarding ne pouvait s’attacher.
+- [x] Réparer le blocage commun de l’onboarding et de la détection du coffre en recalculant le hash CSP exact, sans effacer IndexedDB ni les identifiants WebAuthn.
+- [ ] Ajouter un test couvrant les trois étapes de création de compte, le coffre existant et le choix de secours après annulation biométrique.
+- [x] Publier le correctif v26 après validation locale et publique du passage étape 1 → étape 2, du hash CSP et du service worker.
+- [ ] Vérifier sur Android avec le coffre réel que le démarrage retrouve bien l’identité existante, ouvre Face ID/empreinte automatiquement et propose le secours après annulation.
