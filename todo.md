@@ -115,3 +115,9 @@ Constellation Vault ne diffuse pas le compte en clair chez tous les relais : les
 - [x] Mettre à jour la landing avec la flamme configurable, le code de détresse biométrique et une animation de signal respectant les préférences de mouvement.
 - [x] Retirer les transceivers WebRTC doublonnés, accepter les redémarrages ICE bidirectionnels et utiliser les flux distants négociés.
 - [ ] Tester sur deux appareils la flamme activée/désactivée, le code de détresse biométrique, l’audio et la vidéo dans les deux sens après redémarrage ICE.
+
+## Correction mobile finale — flamme et biométrie
+
+- [ ] Afficher une icône flamme clairement identifiable dans l’en-tête mobile lorsque la fonction est activée, sans surcharger les actions existantes.
+- [ ] Déclencher automatiquement Face ID/empreinte à l’ouverture lorsque la biométrie est configurée, tout en laissant un bouton visible pour choisir le code de sécurité ou le code de détresse après annulation/échec.
+- [ ] Tester sur Chrome Android le démarrage biométrique automatique, l’annulation vers le choix de code et la visibilité de la flamme.
