@@ -118,6 +118,17 @@ Constellation Vault ne diffuse pas le compte en clair chez tous les relais : les
 
 ## Correction mobile finale — flamme et biométrie
 
-- [ ] Afficher une icône flamme clairement identifiable dans l’en-tête mobile lorsque la fonction est activée, sans surcharger les actions existantes.
-- [ ] Déclencher automatiquement Face ID/empreinte à l’ouverture lorsque la biométrie est configurée, tout en laissant un bouton visible pour choisir le code de sécurité ou le code de détresse après annulation/échec.
+- [ ] Tester sur Chrome Android l’icône flamme dans l’en-tête mobile après activation de la fonction.
+- [ ] Tester sur Chrome Android le démarrage automatique Face ID/empreinte et le retour vers le choix de code après annulation/échec.
 - [ ] Tester sur Chrome Android le démarrage biométrique automatique, l’annulation vers le choix de code et la visibilité de la flamme.
+
+## Audit crypto et migration de session moderne demandés
+
+- [x] Cartographier les primitives cryptographiques, les clés, IndexedDB, caches, service worker, transports Nostr/WebRTC, NFC et synchronisation existants.
+- [x] Auditer les dépendances et documenter les scripts embarqués, le CSP, les accès stockage et les métadonnées réseau exposées.
+- [x] Évaluer les implémentations navigateur réellement maintenues de Double Ratchet / X3DH et les limites de leur intégration PWA statique.
+- [ ] Écrire et exécuter une suite de tests de propriétés de session avant toute modification du protocole de messages.
+- [x] Écrire le modèle de menace et la spécification de migration versionnée sans modifier le protocole actif.
+- [ ] Implémenter seulement les durcissements isolés validés par l’audit ; ne pas présenter l’application comme offrant forward secrecy ou post-compromise security avant validation complète.
+- [x] Publier `SECURITY.md`, une documentation du protocole et un rapport d’audit avec risques corrigés et risques restants.
+- [x] Ajouter un test de base CSP/chaîne de livraison/Nostr/coffre et supprimer la journalisation de l’objet d’erreur de démarrage.
