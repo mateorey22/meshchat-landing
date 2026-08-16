@@ -149,7 +149,7 @@ Constellation Vault ne diffuse pas le compte en clair chez tous les relais : les
 - [x] Republier la PWA v25 et vérifier l’ouverture publique avec le nouveau service worker et les requêtes same-origin autorisées.
 - [ ] Ajouter une reproduction instrumentée du démarrage avec coffre existant et capture contrôlée d’une éventuelle exception de boot.
 - [ ] Ajouter un test navigateur de non-régression PWA avec service worker existant et récupération same-origin sous la CSP active.
-- [ ] Documenter dans les tests et le rapport d’audit la nécessité de `connect-src 'self'` pour les ressources internes PWA.
+- [x] Documenter dans les tests et le rapport d’audit la nécessité de `connect-src 'self'` pour les ressources internes PWA.
 
 ## Régression v25 — parcours coffre et création de compte
 
