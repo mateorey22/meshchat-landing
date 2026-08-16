@@ -158,3 +158,9 @@ Constellation Vault ne diffuse pas le compte en clair chez tous les relais : les
 - [ ] Ajouter un test couvrant les trois étapes de création de compte, le coffre existant et le choix de secours après annulation biométrique.
 - [x] Publier le correctif v26 après validation locale et publique du passage étape 1 → étape 2, du hash CSP et du service worker.
 - [ ] Vérifier sur Android avec le coffre réel que le démarrage retrouve bien l’identité existante, ouvre Face ID/empreinte automatiquement et propose le secours après annulation.
+
+## Favicon et logo dans les résultats Google
+
+- [x] Auditer les références favicon, manifest et logo de la landing publique.
+- [x] Ajouter les icônes et métadonnées conformes pour permettre l’affichage du logo par les moteurs de recherche.
+- [ ] Tester les URLs publiques, publier la correction et demander une nouvelle exploration lorsque nécessaire.
