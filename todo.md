@@ -163,4 +163,4 @@ Constellation Vault ne diffuse pas le compte en clair chez tous les relais : les
 
 - [x] Auditer les références favicon, manifest et logo de la landing publique.
 - [x] Ajouter les icônes et métadonnées conformes pour permettre l’affichage du logo par les moteurs de recherche.
-- [ ] Tester les URLs publiques, publier la correction et demander une nouvelle exploration lorsque nécessaire.
+- [x] Tester les URLs publiques, publier la correction et demander une nouvelle exploration lorsque nécessaire.
