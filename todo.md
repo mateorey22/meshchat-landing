@@ -164,3 +164,10 @@ Constellation Vault ne diffuse pas le compte en clair chez tous les relais : les
 - [x] Auditer les références favicon, manifest et logo de la landing publique.
 - [x] Ajouter les icônes et métadonnées conformes pour permettre l’affichage du logo par les moteurs de recherche.
 - [x] Tester les URLs publiques, publier la correction et demander une nouvelle exploration lorsque nécessaire.
+
+## Incident d’indexation Google de la landing
+
+- [x] Auditer l’indexabilité publique : HTTP, robots, canonique, sitemap, rendu HTML, données structurées et éventuels `noindex`.
+- [x] Vérifier les résultats et les directives Google officielles pour distinguer une désindexation d’un délai de réexploration.
+- [x] Corriger les défauts SEO techniques vérifiables et ajouter une protection de non-régression.
+- [ ] Publier les corrections et fournir les actions Search Console nécessaires à la réexploration.

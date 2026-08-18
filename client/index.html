@@ -14,6 +14,21 @@
     <link rel="icon" type="image/png" sizes="144x144" href="/favicon-144.png" />
     <link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
+    <style>
+      #seo-fallback {
+        min-height: 100vh;
+        box-sizing: border-box;
+        margin: 0;
+        padding: clamp(3rem, 9vw, 9rem) clamp(1.5rem, 7vw, 9rem);
+        color: #f4efe4;
+        background: #0a0b0b;
+        font-family: "Space Grotesk", Arial, sans-serif;
+      }
+      #seo-fallback p { max-width: 46rem; color: #c9c0ae; font-size: 1.125rem; line-height: 1.7; }
+      #seo-fallback a { color: #f28a3d; }
+      #seo-fallback .seo-kicker { color: #f28a3d; font-family: "IBM Plex Mono", monospace; font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; }
+      #seo-fallback h1 { max-width: 56rem; margin: .75rem 0 1.5rem; font-size: clamp(2.5rem, 7vw, 5.5rem); line-height: .98; letter-spacing: -.05em; }
+    </style>
     <link rel="preconnect" href="https://files.manuscdn.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -128,7 +143,14 @@
     </script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <main id="seo-fallback">
+        <p class="seo-kicker">Threnyx · messagerie privée</p>
+        <h1>Vos conversations ne sont pas un produit.</h1>
+        <p>Threnyx est une messagerie privée sans numéro de téléphone, construite autour d’une identité locale. Les nouveaux messages persistants utilisent NIP-17, NIP-44 v2 et NIP-59 ; les échanges de contact peuvent passer par QR, lien direct ou NFC compatible.</p>
+        <p><a href="https://mateorey22.github.io/threnyx/">Ouvrir l’application Threnyx</a> · <a href="#controles">Voir les contrôles de sécurité</a></p>
+      </main>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
     <script defer src="%VITE_ANALYTICS_ENDPOINT%/umami" data-website-id="%VITE_ANALYTICS_WEBSITE_ID%"></script>
   </body>
