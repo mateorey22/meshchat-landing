@@ -23,10 +23,10 @@ import { useState } from "react";
 const APP_URL = "https://mateorey22.github.io/threnyx/";
 const REPO_URL = "https://github.com/mateorey22/threnyx";
 const markUrl = "https://files.manuscdn.com/user_upload_by_module/session_file/92875856/eIpWjvCzmTfyQygq.png";
-const demoVideo = "/manus-storage/threnyx-signal-loop_7def9642.mp4";
-const demoNfc = "/manus-storage/threnyx-demo-nfc_1bc93a66.png";
-const demoConstellation = "/manus-storage/threnyx-demo-constellation_1f4f8fef.png";
-const demoHermes = "/manus-storage/threnyx-demo-hermes_0b81c9fc.png";
+const demoVideo = "https://github.com/mateorey22/threnyx-landing/releases/download/landing-media-v1/threnyx-signal-loop.mp4";
+const demoNfc = "https://github.com/mateorey22/threnyx-landing/releases/download/landing-media-v1/threnyx-demo-nfc.png";
+const demoConstellation = "https://github.com/mateorey22/threnyx-landing/releases/download/landing-media-v1/threnyx-demo-constellation.png";
+const demoHermes = "https://github.com/mateorey22/threnyx-landing/releases/download/landing-media-v1/threnyx-demo-hermes.png";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },

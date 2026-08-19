@@ -240,3 +240,10 @@ Constellation Vault ne diffuse pas le compte en clair chez tous les relais : les
 
 - [x] Réparer ou reconnecter l’intégration GitHub Manus utilisée par la session, sans exposer de jeton dans le dépôt ni dans le chat.
 - [x] Pousser les commits locaux de la refonte par l’intégration Manus et contrôler la version publique.
+
+## Correctif médias de démonstration GitHub Pages
+
+- [x] Vérifier les réponses HTTP et les types MIME publics de la vidéo et des trois visuels de démonstration.
+- [x] Corriger les références ou le stockage des médias si GitHub Pages ne peut pas les servir.
+- [x] Revalider le chargement dans le HTML public, le rendu desktop/mobile et le build après correctif.
+- [ ] Publier le correctif média et confirmer publiquement que les assets sont accessibles.
