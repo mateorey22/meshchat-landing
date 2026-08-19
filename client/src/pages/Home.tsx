@@ -24,6 +24,7 @@ import {
   Users,
   MonitorSmartphone,
   ShieldAlert,
+  Bot,
 } from "lucide-react";
 import { useState } from "react";
 
@@ -70,6 +71,10 @@ const faqs = [
   {
     question: "Le chiffrement offre-t-il une confidentialité persistante ?",
     answer: "Les nouveaux messages persistants suivent NIP-17, avec NIP-44 v2 et NIP-59. Ces formats sont actifs pour standardiser le chiffrement et l’enveloppe de livraison. Un pilote de session MLS/Marmot est en qualification séparée ; il n’est pas relié aux conversations et Threnyx ne revendique donc pas encore de forward secrecy ni de post-compromise security.",
+  },
+  {
+    question: "Puis-je connecter Threnyx à Hermes Agent ?",
+    answer: "Threnyx prépare un appairage volontaire vers une identité Nostr de bot : code signé de courte durée, QR, permissions séparées pour images, fichiers et vocaux, puis révocation locale. Un connecteur Hermes Relay persistant, géré par son opérateur, reste nécessaire. Les conversations humaines et les appels WebRTC ne sont pas transmis à l’agent.",
   },
 ];
 
@@ -240,6 +245,7 @@ export default function Home() {
               { icon: Fingerprint, status: "VÉRIFICATION · LOCALE", title: "Vérification d’empreinte", text: "Comparez l’empreinte cryptographique avec votre contact par un canal sûr. Un badge confirme la vérification et disparaît si la clé est modifiée." },
               { icon: MonitorSmartphone, status: "PORTÉE · EN VALIDATION", title: "Appareils liés limités", text: "Le modèle de portée minimale est en validation : l’objectif est un QR temporaire, des scopes explicites et une révocation qui bloque les nouvelles synchronisations." },
               { icon: Users, status: "FORMAT · ACTIF", title: "Invitations de groupe", text: "Le format GC1 sépare les invitations de groupe des cartes MC1 et des clés TCV1, avec expiration et révocation côté administrateur." },
+              { icon: Bot, status: "PILOTE · APPARIAGE LOCAL", title: "Agents sous permission", text: "Un bot Hermes dédié peut être appairé par code signé et QR à durée courte. Images, fichiers et vocaux restent désactivés tant que vous ne les autorisez pas ; un connecteur Relay persistant reste requis." },
             ].map((item, index) => {
               const Icon = item.icon;
               return <motion.article className="control-card" key={item.title} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={reveal} transition={{ duration: 0.5, delay: index * 0.08 }} whileHover={{ y: -5, transition: { duration: 0.18 } }}>
@@ -248,6 +254,7 @@ export default function Home() {
             })}
           </div>
           <div className="section-inner constellation-note"><span>SESSION MODERNE · QUALIFICATION</span><p>La confidentialité persistante ne se résume pas à changer un algorithme. Threnyx qualifie séparément un pilote MLS/Marmot avant toute utilisation : état par appareil, préclés, anti-rejeu, reprise après crash et révocation doivent être testés ensemble. Tant que cette qualification n’est pas terminée, la forward secrecy et la post-compromise security ne sont pas annoncées comme actives.</p></div>
+          <div className="section-inner constellation-note"><span>HERMES RELAY · OPT-IN</span><p>Threnyx prépare l’appairage d’un bot Nostr dédié par code signé de dix minutes, QR et permissions de médias explicites. Ce parcours ne donne jamais la phrase secrète, le coffre ou les conversations humaines à Hermes. Le connecteur Hermes Relay doit tourner séparément et son contrat est expérimental ; les appels WebRTC restent hors périmètre.</p></div>
         </section>
 
         <section className="constellation section-light" id="constellation">

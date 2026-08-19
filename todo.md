@@ -171,3 +171,19 @@ Constellation Vault ne diffuse pas le compte en clair chez tous les relais : les
 - [x] Vérifier les résultats et les directives Google officielles pour distinguer une désindexation d’un délai de réexploration.
 - [x] Corriger les défauts SEO techniques vérifiables et ajouter une protection de non-régression.
 - [ ] Publier les corrections et fournir les actions Search Console nécessaires à la réexploration.
+
+## Étude Hermes Agent Gateway et Threnyx
+
+- [x] Identifier la documentation officielle Hermes Agent/Gateway et vérifier les types de canaux personnalisés réellement pris en charge.
+- [x] Évaluer l’adaptation de Threnyx : identité Nostr, relais, chiffrement, autorisation, accusés et synchronisation hors ligne.
+- [x] Définir une architecture d’adaptateur sécurisée pour textes, fichiers, images, audio et appels, avec les limites de chiffrement de bout en bout.
+- [x] Produire une recommandation de connexion, de validation et de déploiement avant toute modification de la PWA.
+
+## Préparation Hermes Relay dans Threnyx
+
+- [x] Définir le format THX-HERMES1, les permissions, l’expiration, la révocation et les limites explicites du côté PWA.
+- [x] Ajouter au coffre Threnyx le stockage local chiffré des appairages agent et les validateurs de formats non fiables.
+- [x] Ajouter les écrans mobile de création/import de code, consentement média, état de connexion, export de configuration et révocation.
+- [x] Préparer les événements Nostr dédiés à un bot agent, sans donner accès aux conversations humaines, aux clés de coffre ou aux appels WebRTC.
+- [x] Écrire les tests de format, rejet, expiration, permissions et révocation ; revalider la CSP, l’onboarding et les fonctions WebRTC existantes.
+- [x] Mettre à jour la landing et le guide Hermes avec les capacités prêtes côté Threnyx, les prérequis serveur et les limites du Relay expérimental.

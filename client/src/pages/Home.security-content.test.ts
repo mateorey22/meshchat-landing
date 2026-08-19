@@ -15,5 +15,11 @@ describe("contenu de sécurité public", () => {
     expect(llms).toContain("il n’est pas relié aux conversations actives");
     expect(llms).toContain("Ne pas annoncer de forward secrecy");
     expect(html).toContain("Threnyx ne revendique pas encore de forward secrecy");
+    expect(home).toContain("Agents sous permission");
+    expect(home).toContain("connecteur Relay persistant");
+    expect(home).toContain("appels WebRTC restent hors périmètre");
+    expect(llms).toContain("grant local THX-HERMES1");
+    expect(llms).toContain("contrat Relay est expérimental");
+    expect(html).toContain("bot Hermes Relay dédié");
   });
 });

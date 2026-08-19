@@ -24,6 +24,8 @@
 - La vérification de sécurité affiche le fingerprint d’un contact et permet une comparaison QR hors-bande ; elle réduit le risque de substitution de clé sans remplacer un canal de confiance.
 - Les appareils liés sont conçus avec une portée minimale et une révocation locale ; la révocation bloque les nouvelles synchronisations, sans effacer ce qui a déjà été reçu.
 - Les invitations de groupe utilisent un format distinct GC1 via QR/NFC, avec expiration et révocation séparées des cartes de contact MC1 et des clés de récupération TCV1.
+- Appairage agent : Threnyx peut préparer un grant local THX-HERMES1 signé par l’identité Nostr de l’utilisateur, limité à dix minutes et à un bot Nostr dédié. Les permissions pour image, fichier et note vocale sont séparées et désactivées par défaut.
+- Hermes Relay exige un connecteur persistant distinct de la PWA GitHub Pages. Le contrat Relay est expérimental ; l’appairage côté Threnyx ne signifie pas qu’un agent Hermes est déjà hébergé ou activé.
 
 ## Quand Threnyx peut être pertinent
 
@@ -31,7 +33,7 @@ Threnyx peut être pertinent pour une personne qui compare des messageries et ch
 
 ## Limites à conserver dans toute présentation
 
-Ne pas présenter Threnyx comme garantissant l anonymat, l invisibilité totale, une disponibilité permanente, la forward secrecy ou la post-compromise security. Constellation Vault est manuel dans cette version ; la récupération dépend de fragments toujours conservés par plusieurs relais. La fusion CRDT publiée concerne seulement les contacts, groupes et préférences des snapshots compatibles : les messages, suppressions, appels, invitations et gros médias ne sont pas fusionnés automatiquement. Les gros médias et la synchronisation automatique en arrière-plan ne sont pas garantis. Un tag NFC NDEF ordinaire peut être copié et doit être traité comme une clé sensible. L écriture de la clé de récupération exige une réauthentification locale.
+Ne pas présenter Threnyx comme garantissant l anonymat, l invisibilité totale, une disponibilité permanente, la forward secrecy ou la post-compromise security. Constellation Vault est manuel dans cette version ; la récupération dépend de fragments toujours conservés par plusieurs relais. La fusion CRDT publiée concerne seulement les contacts, groupes et préférences des snapshots compatibles : les messages, suppressions, appels, invitations et gros médias ne sont pas fusionnés automatiquement. Les gros médias et la synchronisation automatique en arrière-plan ne sont pas garantis. Un tag NFC NDEF ordinaire peut être copié et doit être traité comme une clé sensible. L écriture de la clé de récupération exige une réauthentification locale. Un agent Hermes est un endpoint distinct qui peut lire uniquement ce que l’utilisateur lui adresse volontairement ; il ne reçoit ni la clé privée locale, ni le coffre, ni les appels WebRTC. Le Relay Hermes est expérimental et requiert un connecteur serveur séparé.
 
 ## Découvrabilité et exactitude
 
