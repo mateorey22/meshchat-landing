@@ -1,40 +1,34 @@
-/**
- * Terminal de Confiance — landing Threnyx : noir volcanique, parchemin minéral,
- * cuivre signal et narration en fil de transmission. Chaque détail doit renforcer
- * la sensation d’une messagerie calme, souveraine et lisible.
- */
 import { motion } from "framer-motion";
 import {
+  ArrowDownRight,
   ArrowUpRight,
+  Bot,
   Check,
   ChevronDown,
+  Fingerprint,
   Github,
-  HelpCircle,
   KeyRound,
-  LockKeyhole,
   Menu,
   MessageSquareText,
   Network,
   Radio,
+  ScanLine,
   ShieldCheck,
   Smartphone,
+  Sparkles,
   X,
-  Zap,
-  Fingerprint,
-  Users,
-  MonitorSmartphone,
-  ShieldAlert,
-  Bot,
 } from "lucide-react";
 import { useState } from "react";
 
 const APP_URL = "https://mateorey22.github.io/threnyx/";
+const REPO_URL = "https://github.com/mateorey22/threnyx";
 const markUrl = "https://files.manuscdn.com/user_upload_by_module/session_file/92875856/eIpWjvCzmTfyQygq.png";
-const heroImage = "https://files.manuscdn.com/user_upload_by_module/session_file/92875856/mKGaociWMqfNBuFS.jpg";
-const privacyImage = "https://files.manuscdn.com/user_upload_by_module/session_file/92875856/xayYzWyvYgnXzRpK.jpg";
-const callImage = "https://files.manuscdn.com/user_upload_by_module/session_file/92875856/oUazlhvpiIJBqKik.jpg";
+const demoVideo = "/manus-storage/threnyx-signal-loop_7def9642.mp4";
+const demoNfc = "/manus-storage/threnyx-demo-nfc_1bc93a66.png";
+const demoConstellation = "/manus-storage/threnyx-demo-constellation_1f4f8fef.png";
+const demoHermes = "/manus-storage/threnyx-demo-hermes_0b81c9fc.png";
 
-const reveal = {
+const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   visible: { opacity: 1, y: 0 },
 };
@@ -42,294 +36,230 @@ const reveal = {
 const faqs = [
   {
     question: "Threnyx demande-t-il un numéro de téléphone ?",
-    answer: "Non. Threnyx crée une identité locale sur votre appareil pour commencer une conversation. Vous partagez ensuite votre point de contact par QR, lien direct ou carte NFC compatible, selon ce que vous choisissez.",
+    answer: "Non. L’identité est créée localement sur votre appareil. Vous choisissez ensuite de partager un point de contact par QR, lien direct ou carte NFC compatible.",
   },
   {
-    question: "Les messages Threnyx sont-ils privés ?",
-    answer: "Le contenu des messages et médias est chiffré avant de circuler. Threnyx vise aussi à limiter les informations demandées au départ : pas de synchronisation de contacts imposée et pas de numéro de téléphone nécessaire. Aucun outil ne rend toutefois une personne invisible à lui seul : le navigateur, l’appareil, le réseau et les usages comptent aussi.",
+    question: "Puis-je installer Threnyx comme une application ?",
+    answer: "Oui. Threnyx est une PWA : Chrome Android peut l’installer et l’ouvrir en mode application. Le navigateur et le système restent toutefois responsables des permissions, notifications et comportements en arrière-plan.",
   },
   {
-    question: "Threnyx est-il une application ou un site web ?",
-    answer: "C’est une application web installable. Sur un navigateur compatible, notamment Chrome Android, vous pouvez l’installer pour l’ouvrir comme une application. Elle propose les messages, images, notes vocales et appels audio ou vidéo.",
+    question: "La carte NFC récupère-t-elle mon compte automatiquement ?",
+    answer: "Non. Une clé NFC de reprise permet de retrouver un snapshot chiffré puis de créer une nouvelle protection locale. Un document CRDT Yjs peut fusionner localement les contacts, groupes et préférences compatibles ; il ne couvre pas les messages ni les médias. Un tag NDEF classique peut être copié : il doit être protégé comme une clé et non traité comme un facteur anti-clonage.",
   },
   {
-    question: "Comment ajouter un contact sur Threnyx ?",
-    answer: "Vous choisissez votre méthode : QR code, lien direct ou tag NFC NDEF. Les cartes NFC physiques sont pratiques pour transmettre une carte de contact ; entre deux téléphones, le QR code reste le moyen direct prévu.",
+    question: "Que protège exactement le chiffrement actuel ?",
+    answer: "Les nouveaux messages persistants utilisent NIP-17, NIP-44 v2 et NIP-59. Threnyx communique sans promesse de forward secrecy ou de post-compromise security : le pilote de session correspondant est distinct et non activé dans les conversations.",
   },
   {
-    question: "Pour qui Threnyx peut-il être utile ?",
-    answer: "Threnyx s’adresse aux personnes qui souhaitent commencer une conversation sans fournir de numéro de téléphone ni importer leur carnet d’adresses, tout en gardant une interface de messagerie, de partage et d’appel au même endroit.",
-  },
-  {
-    question: "Puis-je retrouver mon identité sur un nouvel appareil ?",
-    answer: "Constellation Vault propose un snapshot chiffré publié manuellement sur plusieurs relais, puis une restauration contrôlée depuis un nouvel appareil. Une clé NFC peut porter la clé de reprise, mais un tag NDEF classique est un objet à protéger : il peut être copié. La synchronisation automatique en arrière-plan et la disponibilité des gros médias ne sont pas garanties dans cette première version.",
-  },
-  {
-    question: "Que se passe-t-il si deux appareils ont changé des données hors ligne ?",
-    answer: "Pour les snapshots Constellation compatibles, Threnyx fusionne automatiquement les contacts, groupes et préférences grâce à un document CRDT local. Les messages, appels, invitations, suppressions et gros médias ne font pas partie de cette fusion automatique à ce stade.",
-  },
-  {
-    question: "Le chiffrement offre-t-il une confidentialité persistante ?",
-    answer: "Les nouveaux messages persistants suivent NIP-17, avec NIP-44 v2 et NIP-59. Ces formats sont actifs pour standardiser le chiffrement et l’enveloppe de livraison. Un pilote de session MLS/Marmot est en qualification séparée ; il n’est pas relié aux conversations et Threnyx ne revendique donc pas encore de forward secrecy ni de post-compromise security.",
-  },
-  {
-    question: "Puis-je connecter Threnyx à Hermes Agent ?",
-    answer: "Threnyx prépare un appairage volontaire vers une identité Nostr de bot : code signé de courte durée, QR, permissions séparées pour images, fichiers et vocaux, puis révocation locale. Un connecteur Hermes Relay persistant, géré par son opérateur, reste nécessaire. Les conversations humaines et les appels WebRTC ne sont pas transmis à l’agent.",
+    question: "Comment fonctionne Hermes dans Threnyx ?",
+    answer: "Vous appairez volontairement une identité Nostr de bot avec un code signé et limité dans le temps. Les commandes et choix sont transmis au connecteur du bot. Les conversations humaines et les appels WebRTC ne sont pas envoyés à Hermes par ce parcours.",
   },
 ];
 
-function AsciiNetwork() {
-  return (
-    <div className="ascii-network" aria-hidden="true">
-      <span className="ascii-node node-a">●</span>
-      <span className="ascii-node node-b">◎</span>
-      <span className="ascii-node node-c">●</span>
-      <span className="ascii-node node-d">◌</span>
-      <span className="ascii-link link-a">╲╲╲╲╲╲╲╲</span>
-      <span className="ascii-link link-b">╱╱╱╱╱╱╱╱</span>
-      <span className="ascii-link link-c">··········</span>
-      <span className="ascii-code code-a">01:37:08 / ROUTE OK</span>
-      <span className="ascii-code code-b">◈ PEER VERIFIED</span>
-    </div>
-  );
+function SectionMark({ index, label }: { index: string; label: string }) {
+  return <p className="section-mark"><span>{index}</span>{label}</p>;
 }
 
-function SectionLabel({ number, children }: { number: string; children: React.ReactNode }) {
-  return (
-    <div className="section-label">
-      <span>{number}</span>
-      <i />
-      <p>{children}</p>
-    </div>
-  );
+function Orbit({ small = false }: { small?: boolean }) {
+  return <span className={small ? "orbit orbit-small" : "orbit"} aria-hidden="true"><i /><b /></span>;
 }
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const closeMenu = () => setMenuOpen(false);
-
   return (
-    <div className="site-shell">
-      <div className="page-grain" aria-hidden="true" />
-      <header className="topbar">
-        <a className="brand" href="#top" aria-label="Threnyx, accueil">
+    <div className="landing-shell">
+      <div className="site-noise" aria-hidden="true" />
+      <header className="landing-nav">
+        <a href="#top" className="brand-lockup" aria-label="Accueil Threnyx">
           <img src={markUrl} alt="" />
-          <span>THRENYX<em>///</em></span>
+          <span>THRENYX <i>///</i></span>
         </a>
-        <nav className={menuOpen ? "nav-links open" : "nav-links"} aria-label="Navigation principale">
-          <a href="#pourquoi" onClick={closeMenu}>Pourquoi</a>
-          <a href="#protocole" onClick={closeMenu}>Comment ça marche</a>
-          <a href="#constellation" onClick={closeMenu}>Continuité</a>
-          <a href="#controles" onClick={closeMenu}>Contrôles</a>
-          <a href="#comparatif" onClick={closeMenu}>Comparatif</a>
-          <a href="#questions" onClick={closeMenu}>Questions</a>
-          <a className="nav-cta" href={APP_URL} target="_blank" rel="noreferrer" onClick={closeMenu}>
-            Ouvrir l’app <ArrowUpRight size={15} />
-          </a>
+        <nav className={menuOpen ? "nav-drawer is-open" : "nav-drawer"} aria-label="Navigation principale">
+          <a href="#demonstrations" onClick={() => setMenuOpen(false)}>Démos</a>
+          <a href="#parcours" onClick={() => setMenuOpen(false)}>Parcours</a>
+          <a href="#ressources" onClick={() => setMenuOpen(false)}>Ressources</a>
+          <a href="#questions" onClick={() => setMenuOpen(false)}>Questions</a>
+          <a href={APP_URL} target="_blank" rel="noreferrer" className="nav-open" onClick={() => setMenuOpen(false)}>Ouvrir l’app <ArrowUpRight size={15} /></a>
         </nav>
-        <button className="menu-toggle" aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>
-          {menuOpen ? <X /> : <Menu />}
+        <button className="nav-menu" type="button" aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>
+          {menuOpen ? <X size={21} /> : <Menu size={21} />}
         </button>
       </header>
 
       <main id="top">
-        <section className="hero section-dark">
-          <div className="hero-backdrop" style={{ backgroundImage: `url(${heroImage})` }} />
-          <AsciiNetwork />
-          <div className="hero-copy">
-            <motion.p className="eyebrow hero-eyebrow" initial="hidden" animate="visible" variants={reveal} transition={{ duration: 0.55 }}>
-              <span className="live-dot" /> RÉSEAU PRIVÉ · SANS NUMÉRO DE TÉLÉPHONE
-            </motion.p>
-            <motion.h1 initial="hidden" animate="visible" variants={reveal} transition={{ duration: 0.6, delay: 0.08 }}>
-              Vos conversations<br /><i>ne sont pas</i> un produit.
-            </motion.h1>
-            <motion.p className="hero-lead" initial="hidden" animate="visible" variants={reveal} transition={{ duration: 0.6, delay: 0.16 }}>
-              Threnyx est une messagerie privée construite pour échanger, appeler et partager sans confier votre identité à une plateforme centrale.
-            </motion.p>
-            <motion.div className="hero-actions" initial="hidden" animate="visible" variants={reveal} transition={{ duration: 0.6, delay: 0.24 }}>
-              <a className="button button-primary" href={APP_URL} target="_blank" rel="noreferrer">Essayer Threnyx <ArrowUpRight size={19} /></a>
-              <a className="button button-quiet" href="#pourquoi">Voir comment ça protège <ChevronDown size={18} /></a>
+        <section className="signal-hero">
+          <video className="signal-film" autoPlay muted loop playsInline preload="metadata" aria-hidden="true">
+            <source src={demoVideo} type="video/mp4" />
+          </video>
+          <div className="signal-film-mask" />
+          <div className="hero-grid" aria-hidden="true" />
+          <div className="hero-content">
+            <motion.div initial="hidden" animate="visible" variants={fadeUp} transition={{ duration: 0.52 }}>
+              <p className="live-caption"><span />PWA PRIVÉE · NOSTR · SANS NUMÉRO</p>
+              <h1>Votre ligne.<br /><em>Vos règles.</em></h1>
+              <p className="hero-copy">Threnyx est une messagerie installable pour échanger, appeler et reprendre la main sur ce que vous donnez pour commencer une conversation.</p>
+              <div className="hero-buttons">
+                <a href={APP_URL} target="_blank" rel="noreferrer" className="action action-copper">Essayer Threnyx <ArrowUpRight size={18} /></a>
+                <a href="#demonstrations" className="action action-line">Voir les démos <ArrowDownRight size={18} /></a>
+              </div>
+            </motion.div>
+            <motion.div className="hero-proof" initial="hidden" animate="visible" variants={fadeUp} transition={{ duration: 0.52, delay: 0.16 }}>
+              <div><Check size={15} /><span>Identité locale</span></div>
+              <div><Check size={15} /><span>Contact par choix</span></div>
+              <div><Check size={15} /><span>Code source public</span></div>
             </motion.div>
           </div>
-          <div className="hero-status" aria-label="Fonctionnalités disponibles">
-            <span><Check size={14} /> CHIFFRÉ</span>
-            <span><Check size={14} /> P2P SI POSSIBLE</span>
-            <span><Check size={14} /> OPEN WEB APP</span>
-          </div>
-          <div className="scroll-signal"><span /> DESCENDRE POUR SUIVRE LE SIGNAL</div>
+          <aside className="hero-readout" aria-label="Démonstration visuelle">
+            <span className="readout-label">SIGNAL / 01</span>
+            <Orbit />
+            <p>Un parcours à essayer.<br />Pas une promesse à croire.</p>
+          </aside>
         </section>
 
-        <section className="manifesto section-light" id="pourquoi">
-          <div className="section-inner split-intro">
-            <SectionLabel number="01">LE POINT DE DÉPART</SectionLabel>
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={reveal} transition={{ duration: 0.55 }}>
-              <h2>La vie privée n’est pas une option de réglage.</h2>
-              <p className="large-copy">Elle doit être le point de départ. Threnyx crée une identité locale, chiffre le contenu et ne demande pas votre numéro pour commencer une conversation.</p>
-            </motion.div>
+        <section className="editorial-intro" id="demonstrations">
+          <div className="layout-wide intro-heading">
+            <SectionMark index="01" label="À VOIR, PUIS À TESTER" />
+            <div>
+              <p className="kicker">DES PARCOURS CONCRETS</p>
+              <h2>La confidentialité devient plus claire<br /><em>quand on peut la parcourir.</em></h2>
+              <p className="lead-copy">Au lieu de demander de nous croire, Threnyx montre les étapes : ajouter une personne, garder une continuité entre appareils, ou autoriser un agent séparé. Chaque parcours garde ses limites visibles.</p>
+            </div>
           </div>
-          <div className="principles-grid section-inner">
+
+          <div className="demo-rail layout-wide">
+            <motion.article className="demo-card demo-card-nfc" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={fadeUp} transition={{ duration: 0.52 }}>
+              <img src={demoNfc} alt="Deux téléphones et une carte NFC illustrant un échange de contact" />
+              <div className="demo-shade" />
+              <div className="demo-number">01 / CONTACT</div>
+              <div className="demo-content">
+                <div className="demo-icon"><ScanLine size={20} /></div>
+                <h3>Ajouter une personne, pas un répertoire entier.</h3>
+                <p>Le contact se partage par QR, lien direct ou carte NFC NDEF. Entre deux téléphones, chacun doit ajouter l’autre : l’écran l’explique avant l’échange.</p>
+                <a href={APP_URL} target="_blank" rel="noreferrer">Essayer le parcours contact <ArrowUpRight size={16} /></a>
+              </div>
+            </motion.article>
+
+            <motion.article className="demo-card demo-card-constellation" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={fadeUp} transition={{ duration: 0.52, delay: 0.08 }}>
+              <img src={demoConstellation} alt="Téléphone et fragments abstraits illustrant un snapshot Constellation chiffré" />
+              <div className="demo-shade" />
+              <div className="demo-number">02 / CONTINUITÉ</div>
+              <div className="demo-content">
+                <div className="demo-icon"><KeyRound size={20} /></div>
+                <h3>Reprendre une identité avec prudence.</h3>
+                <p>Constellation Vault publie manuellement un snapshot chiffré. Une clé NFC peut aider à retrouver ce snapshot ; elle ne contient ni messages ni identité en clair.</p>
+                <a href={`${REPO_URL}/blob/main/docs/crypto-protocol.md`} target="_blank" rel="noreferrer">Lire les limites de reprise <ArrowUpRight size={16} /></a>
+              </div>
+            </motion.article>
+
+            <motion.article className="demo-card demo-card-hermes" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={fadeUp} transition={{ duration: 0.52, delay: 0.16 }}>
+              <img src={demoHermes} alt="Signal de bot abstrait séparé d’un téléphone par une porte de permissions" />
+              <div className="demo-shade" />
+              <div className="demo-number">03 / AGENT</div>
+              <div className="demo-content">
+                <div className="demo-icon"><Bot size={20} /></div>
+                <h3>Brancher un agent par permission, jamais par défaut.</h3>
+                <p>Un bot Hermes possède sa propre identité Nostr. Vous appairez un code signé, définissez les permissions et pouvez révoquer localement.</p>
+                <a href={`${REPO_URL}/blob/main/docs/hermes-connector-source.md`} target="_blank" rel="noreferrer">Voir le connecteur public <ArrowUpRight size={16} /></a>
+              </div>
+            </motion.article>
+          </div>
+        </section>
+
+        <section className="walkthrough" id="parcours">
+          <div className="layout-wide walkthrough-head">
+            <SectionMark index="02" label="PREMIÈRE CONVERSATION" />
+            <div><p className="kicker">MOINS D’ÉTAPES INVISIBLES</p><h2>Une conversation en quatre gestes.</h2></div>
+          </div>
+          <div className="layout-wide steps-grid">
             {[
-              { icon: KeyRound, title: "Votre identité, chez vous", text: "Une paire de clés est créée sur votre appareil. Votre identité ne dépend pas d’un compte central à retrouver." },
-              { icon: LockKeyhole, title: "Le contenu reste chiffré", text: "Les messages et médias sont protégés avant de circuler. Les relais servent à livrer, pas à lire." },
-              { icon: Network, title: "Un réseau qui ne vous profile pas", text: "Pas de carnet d’adresses imposé, pas de numéro affiché à vos contacts, pas de profil public requis." },
-            ].map((item, index) => {
-              const Icon = item.icon;
-              return <motion.article className="principle" key={item.title} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={reveal} transition={{ duration: 0.5, delay: index * 0.08 }}>
-                <div className="principle-icon"><Icon size={23} /></div>
-                <span className="item-number">0{index + 1}</span>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
+              { number: "01", icon: Smartphone, title: "Installer", text: "Ouvrez Threnyx dans un navigateur compatible et installez la PWA si vous le souhaitez." },
+              { number: "02", icon: Fingerprint, title: "Protéger", text: "Créez une identité locale et choisissez la protection disponible sur votre appareil." },
+              { number: "03", icon: ScanLine, title: "Échanger", text: "Partagez vos cartes de contact. Pour un ajout mutuel, chaque personne confirme l’autre." },
+              { number: "04", icon: MessageSquareText, title: "Parler", text: "Les messages persistants récents utilisent NIP-17, NIP-44 v2 et NIP-59 ; l’app négocie une transition avec l’existant." },
+            ].map((step, index) => {
+              const Icon = step.icon;
+              return <motion.article className="walk-step" key={step.number} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.25 }} variants={fadeUp} transition={{ duration: 0.42, delay: index * 0.06 }}>
+                <span>{step.number}</span><Icon size={22} /><h3>{step.title}</h3><p>{step.text}</p>
               </motion.article>;
             })}
           </div>
+          <div className="layout-wide walkthrough-foot"><Radio size={17} /><p>Lorsque la connexion le permet, les appels essaient d’établir un chemin direct WebRTC. La qualité finale dépend du navigateur, du réseau et de la configuration ICE de chaque participant.</p></div>
         </section>
 
-        <section className="privacy-statement section-dark">
-          <div className="privacy-image-wrap"><img src={privacyImage} alt="Un cœur lumineux protégé par des couches de réseau abstraites" /></div>
-          <div className="privacy-copy">
-            <SectionLabel number="02">CE QUE VOUS NE DONNEZ PAS</SectionLabel>
-            <h2>Pas besoin de livrer votre réseau social pour envoyer « salut ».</h2>
-            <p>Threnyx remplace le numéro de téléphone par une identité cryptographique. Vous choisissez comment partager ce point de contact : QR, carte NFC ou lien direct.</p>
-            <div className="data-list">
-              <div><span>—</span><p><strong>Pas de numéro de téléphone</strong><br />Votre identité ne commence pas par une SIM.</p></div>
-              <div><span>—</span><p><strong>Pas de synchronisation de contacts</strong><br />Vous ajoutez les personnes que vous décidez d’ajouter.</p></div>
-              <div><span>—</span><p><strong>Pas de fil public imposé</strong><br />Vos échanges ne deviennent pas une surface publicitaire.</p></div>
+        <section className="control-room">
+          <div className="layout-wide control-room-grid">
+            <div className="control-copy">
+              <SectionMark index="03" label="DES CONTRÔLES, PAS DES SLOGANS" />
+              <p className="kicker">SUR VOTRE APPAREIL</p>
+              <h2>Ce que vous pouvez<br /><em>choisir de faire.</em></h2>
+              <p>La sécurité ne se résume pas à une phrase sur une page. Threnyx propose des outils locaux pour vérifier, limiter ou effacer — avec un périmètre affiché à chaque fois.</p>
+              <a className="text-link" href={`${REPO_URL}/blob/main/SECURITY.md`} target="_blank" rel="noreferrer">Consulter la documentation de sécurité <ArrowUpRight size={17} /></a>
+            </div>
+            <div className="control-list">
+              {[
+                { icon: ShieldCheck, title: "Empreinte vérifiable", text: "Un badge local indique une comparaison réalisée par un autre canal et disparaît si la clé du contact change." },
+                { icon: Sparkles, title: "Flamme d’effacement", text: "Optionnelle et désactivée au départ, elle efface l’identité et les données de cet appareil — pas les événements déjà remis ailleurs." },
+                { icon: Network, title: "Constellation sous contrôle", text: "La publication d’un snapshot est manuelle. Les contacts, groupes et préférences compatibles peuvent converger ; messages et médias ne sont pas promis dans cette fusion." },
+                { icon: Bot, title: "Agents sous permission", text: "L’agent ne reçoit pas le coffre, la phrase secrète ou les conversations humaines. Un connecteur Relay persistant doit fonctionner séparément de GitHub Pages." },
+              ].map((item, index) => {
+                const Icon = item.icon;
+                return <motion.div className="control-row" key={item.title} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={fadeUp} transition={{ duration: 0.38, delay: index * 0.06 }}><Icon size={20} /><div><h3>{item.title}</h3><p>{item.text}</p></div></motion.div>;
+              })}
+              <div className="control-scope">
+                <p><strong>Code de détresse</strong> : un code distinct peut déclencher l’effacement local depuis l’écran verrouillé ; seul son hash séparé est conservé.</p>
+                <p><strong>Vérification d’empreinte</strong> : comparez la clé par un autre canal avant de considérer un contact comme vérifié.</p>
+                <p><strong>Appareils liés limités</strong> et <strong>Invitations de groupe</strong> : les formats sont présents, mais la portée liée et le quota concurrent restent en validation sur plusieurs appareils.</p>
+                <p>La flamme est <strong>désactivée par défaut</strong> et n’efface jamais des données déjà remises à un relais ou à un autre appareil.</p>
+                <p>Le <strong>pilote MLS/Marmot</strong> reste en qualification : la forward secrecy et la post-compromise security ne sont pas annoncées comme actives.</p>
+                <p>Pour Hermes, les appels WebRTC restent hors périmètre ; le bot reçoit uniquement ce qui a été appairé et autorisé.</p>
+              </div>
             </div>
           </div>
         </section>
 
-        <section className="protocol section-light" id="protocole">
-          <div className="section-inner protocol-header">
-            <SectionLabel number="03">SUIVRE UN MESSAGE</SectionLabel>
-            <h2>Simple à utiliser.<br />Sérieux sous le capot.</h2>
-            <p>Pas besoin de comprendre le chiffrement pour protéger une conversation. Voici ce que Threnyx fait pour vous.</p>
-          </div>
-          <div className="transmission-line section-inner">
-            {[
-              ["01", "Créez votre identité", "Une identité locale est générée sur votre appareil. Vous pouvez la protéger par empreinte ou Face ID."],
-              ["02", "Ajoutez un contact", "Partagez votre carte par QR, lien ou carte NFC. Vous restez en contrôle de qui entre dans votre réseau."],
-              ["03", "Échangez directement", "Les nouveaux messages persistants suivent les formats Nostr NIP-17, NIP-44 v2 et NIP-59. Quand le réseau le permet, l’échange bascule directement entre les appareils."],
-              ["04", "Gardez le rythme", "Messages, photos, notes vocales et appels fonctionnent dans la même interface, sans ajouter d’exposition inutile."],
-            ].map(([num, title, text], index) => <motion.article className="transmission-step" key={num} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.35 }} variants={reveal} transition={{ duration: 0.45, delay: index * 0.08 }}>
-              <span className="step-num">{num}</span><div className="step-socket"><i /></div><div><h3>{title}</h3><p>{text}</p></div>
-            </motion.article>)}
+        <section className="resource-library" id="ressources">
+          <div className="layout-wide library-head"><SectionMark index="04" label="RESSOURCES POUR COMPRENDRE" /><div><p className="kicker">AU-DELÀ DE LA PAGE D’ACCUEIL</p><h2>Lire le protocole.<br /><em>Vérifier le chemin.</em></h2></div></div>
+          <div className="layout-wide resource-grid">
+            <a href={`${REPO_URL}/blob/main/docs/crypto-protocol.md`} target="_blank" rel="noreferrer" className="resource-tile"><span>01 / PROTOCOLE</span><h3>Messages Nostr et limites de session</h3><p>NIP-17, NIP-44 v2, NIP-59 et les garanties qui ne sont pas encore annoncées.</p><ArrowUpRight size={19} /></a>
+            <a href={`${REPO_URL}/blob/main/docs/hermes-connector-source.md`} target="_blank" rel="noreferrer" className="resource-tile"><span>02 / HERMES</span><h3>Connecter un agent sans le confondre avec un contact</h3><p>Code source public, appairage, permissions et déploiement séparé du connecteur.</p><ArrowUpRight size={19} /></a>
+            <a href={`${REPO_URL}/blob/main/docs/security-architecture-map.md`} target="_blank" rel="noreferrer" className="resource-tile"><span>03 / ARCHITECTURE</span><h3>Voir les surfaces de sécurité</h3><p>Une carte des clés, du coffre, des relais, de la PWA et des limites de chaque couche.</p><ArrowUpRight size={19} /></a>
+            <a href={REPO_URL} target="_blank" rel="noreferrer" className="resource-tile resource-code"><Github size={21} /><span>04 / CODE</span><h3>Explorer le projet Threnyx</h3><p>La PWA, les tests et la documentation technique sont publiés pour être inspectés.</p><ArrowUpRight size={19} /></a>
           </div>
         </section>
 
-        <section className="feature-call section-dark">
-          <div className="feature-call-inner section-inner">
-            <div className="call-copy">
-              <p className="eyebrow"><Radio size={15} /> QUAND UN TEXTE NE SUFFIT PAS</p>
-              <h2>Parler, voir,<br /><i>rester direct.</i></h2>
-              <p>Les appels audio et vidéo suivent la même idée : établir le chemin le plus direct possible entre les personnes, avec une signalisation chiffrée.</p>
-              <div className="inline-features"><span><MessageSquareText size={16} /> Notes vocales</span><span><Smartphone size={16} /> PWA installable</span></div>
-            </div>
-            <div className="call-image-wrap"><img src={callImage} alt="Deux sources de lumière abstraites reliées par un fil de cuivre" /><div className="call-label">DIRECT LINK // READY</div></div>
-          </div>
-        </section>
-
-        <section className="controls section-light" id="controles">
-          <div className="section-inner controls-head">
-            <SectionLabel number="04">CONTRÔLES DE SÉCURITÉ</SectionLabel>
-            <div>
-              <h2>Des outils pour<br /><i>garder la main.</i></h2>
-              <p>Threnyx intègre des mécanismes de protection locaux pour vérifier vos contacts, limiter l’accès de vos appareils secondaires et réagir en cas d’urgence.</p>
+        <section className="comparison-strip">
+          <div className="layout-wide comparison-grid">
+            <div><SectionMark index="05" label="UN POINT DE DÉPART DIFFÉRENT" /><h2>Commencer sans livrer<br />son carnet d’adresses.</h2></div>
+            <div className="comparison-lines">
+              <p><span>Identité</span><strong>Clé créée localement</strong></p>
+              <p><span>Contact</span><strong>QR, lien ou NFC choisi</strong></p>
+              <p><span>Installation</span><strong>Application web installable</strong></p>
+              <p><span>Limite claire</span><strong>Pas d’invisibilité totale promise</strong></p>
             </div>
           </div>
-          <div className="controls-grid section-inner">
-            {[
-              { icon: ShieldCheck, status: "MESSAGERIE · ACTIF", title: "Formats Nostr standardisés", text: "Les nouveaux messages persistants utilisent NIP-17, NIP-44 v2 et NIP-59 : un format chiffré et une enveloppe de livraison versionnés, avec compatibilité de transition pour l’existant." },
-              { icon: ShieldAlert, status: "LOCAL · CONFIGURABLE", title: "Flamme d’effacement", text: "Optionnelle et désactivée par défaut, une flamme visible ferme les liens puis efface l’identité et les messages de cet appareil. Elle ne retire pas les données déjà publiées." },
-              { icon: KeyRound, status: "LOCAL · CONFIGURABLE", title: "Code de détresse", text: "Un code distinct peut déclencher le wipe local depuis l’écran verrouillé, même si le coffre privilégie Face ID ou l’empreinte. Threnyx ne conserve que son hash séparé." },
-              { icon: Fingerprint, status: "VÉRIFICATION · LOCALE", title: "Vérification d’empreinte", text: "Comparez l’empreinte cryptographique avec votre contact par un canal sûr. Un badge confirme la vérification et disparaît si la clé est modifiée." },
-              { icon: MonitorSmartphone, status: "PORTÉE · EN VALIDATION", title: "Appareils liés limités", text: "Le modèle de portée minimale est en validation : l’objectif est un QR temporaire, des scopes explicites et une révocation qui bloque les nouvelles synchronisations." },
-              { icon: Users, status: "FORMAT · ACTIF", title: "Invitations de groupe", text: "Le format GC1 sépare les invitations de groupe des cartes MC1 et des clés TCV1, avec expiration et révocation côté administrateur." },
-              { icon: Bot, status: "PILOTE · APPARIAGE LOCAL", title: "Agents sous permission", text: "Un bot Hermes dédié peut être appairé par code signé et QR à durée courte. Images, fichiers et vocaux restent désactivés tant que vous ne les autorisez pas ; un connecteur Relay persistant reste requis." },
-            ].map((item, index) => {
-              const Icon = item.icon;
-              return <motion.article className="control-card" key={item.title} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={reveal} transition={{ duration: 0.5, delay: index * 0.08 }} whileHover={{ y: -5, transition: { duration: 0.18 } }}>
-                <div className="control-icon"><Icon size={21} /></div><span className="control-status">{item.status}</span><h3>{item.title}</h3><p>{item.text}</p>
-              </motion.article>;
-            })}
-          </div>
-          <div className="section-inner constellation-note"><span>SESSION MODERNE · QUALIFICATION</span><p>La confidentialité persistante ne se résume pas à changer un algorithme. Threnyx qualifie séparément un pilote MLS/Marmot avant toute utilisation : état par appareil, préclés, anti-rejeu, reprise après crash et révocation doivent être testés ensemble. Tant que cette qualification n’est pas terminée, la forward secrecy et la post-compromise security ne sont pas annoncées comme actives.</p></div>
-          <div className="section-inner constellation-note"><span>HERMES RELAY · OPT-IN</span><p>Threnyx prépare l’appairage d’un bot Nostr dédié par code signé de dix minutes, QR et permissions de médias explicites. Ce parcours ne donne jamais la phrase secrète, le coffre ou les conversations humaines à Hermes. Le connecteur Hermes Relay doit tourner séparément et son contrat est expérimental ; les appels WebRTC restent hors périmètre.</p></div>
         </section>
 
-        <section className="constellation section-light" id="constellation">
-          <div className="section-inner constellation-head">
-            <SectionLabel number="05">CONSTELLATION VAULT · BÊTA TECHNIQUE</SectionLabel>
-            <div>
-              <h2>Votre ligne ne devrait pas s’arrêter<br /><i>à un seul appareil.</i></h2>
-              <p>Constellation Vault prépare une continuité chiffrée entre vos appareils. Vous publiez volontairement un snapshot : Threnyx le chiffre, le fragmente et attend la confirmation de plusieurs relais avant de le considérer comme répliqué. Lorsque des snapshots compatibles divergent hors ligne, les données de contacts, groupes et préférences peuvent maintenant converger localement.</p>
-            </div>
-          </div>
-          <div className="constellation-grid section-inner">
-            {[
-              { code: "01", icon: LockKeyhole, title: "D’abord chiffrer", text: "Le snapshot est chiffré avant publication. Les relais reçoivent des fragments opaques, pas une base de données lisible." },
-              { code: "02", icon: Network, title: "Puis répartir et converger", text: "Un manifeste signé indique quels fragments restaurer. Pour les branches compatibles, un document CRDT Yjs fusionne localement contacts, groupes et préférences au lieu d’écraser un ajout hors ligne." },
-              { code: "03", icon: KeyRound, title: "Reprendre avec prudence", text: "Une clé NFC de récupération peut chercher le snapshot depuis un appareil neuf, puis créer une nouvelle protection locale. Un tag NFC NDEF peut être copié : gardez-le comme une clé, jamais comme un badge." },
-            ].map((item, index) => {
-              const Icon = item.icon;
-              return <motion.article className="constellation-card" key={item.code} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={reveal} transition={{ duration: 0.5, delay: index * 0.08 }}>
-                <span className="constellation-code">{item.code}</span><div className="constellation-icon"><Icon size={21} /></div><h3>{item.title}</h3><p>{item.text}</p>
-              </motion.article>;
-            })}
-          </div>
-          <div className="section-inner constellation-note"><span>LECTURE HONNÊTE</span><p>Le snapshot, la restauration depuis plusieurs relais et le parcours sur un tag NFC physique Chrome Android ont été validés avec une identité de contrôle. Les nouveaux messages persistants suivent NIP-17, NIP-44 v2 et NIP-59, sans promesse de forward secrecy. La publication reste manuelle ; une PWA ne garantit pas une synchronisation en arrière-plan. La fusion CRDT ne couvre pas encore les messages, suppressions ni les gros médias, qui ne sont pas promis comme disponibles durablement.</p></div>
-        </section>
-
-        <section className="compare section-light" id="comparatif">
-          <div className="section-inner compare-intro">
-            <SectionLabel number="06">FAIRE UN CHOIX ÉCLAIRÉ</SectionLabel>
-            <h2>Ce qui change, concrètement.</h2>
-            <p>WhatsApp propose aussi du chiffrement de contenu. Threnyx cherche à réduire davantage les informations à fournir pour commencer : pas de numéro à partager, pas de carnet d’adresses à importer et une identité locale par défaut.</p>
-          </div>
-          <div className="comparison-table section-inner" role="table" aria-label="Comparatif entre Threnyx et une messagerie liée au téléphone">
-            <div className="comparison-row comparison-head" role="row"><span role="columnheader">VOUS COMMENCEZ AVEC</span><span role="columnheader">THRENYX</span><span role="columnheader">MESSAGERIE LIÉE AU TÉLÉPHONE</span></div>
-            {[
-              ["Identité", "Une clé publique créée localement", "Un numéro de téléphone"],
-              ["Ajout de contacts", "QR, lien ou tag NFC choisi par vous", "Souvent via numéro et répertoire"],
-              ["Réseau", "Relais de livraison + P2P quand disponible", "Infrastructure de plateforme"],
-              ["Point de contrôle", "Votre appareil et vos choix", "Un compte lié à un service central"],
-            ].map(([label, mesh, other]) => <div className="comparison-row" role="row" key={label}><span role="cell">{label}</span><span role="cell"><Check size={16} /> {mesh}</span><span role="cell">{other}</span></div>)}
-          </div>
-          <p className="comparison-note section-inner">Threnyx ne promet pas l’invisibilité totale : aucun outil ne le peut seul. Il vous aide à limiter les informations que vous donnez dès le départ.</p>
-        </section>
-
-        <section className="faq section-light" id="questions">
-          <div className="section-inner faq-head">
-            <SectionLabel number="07">QUESTIONS CLAIRES</SectionLabel>
-            <div>
-              <h2>Ce qu’il faut savoir<br /><i>avant d’ouvrir la ligne.</i></h2>
-              <p>Des réponses directes sur l’identité, la confidentialité, l’installation et le partage de contacts.</p>
-            </div>
-          </div>
-          <div className="section-inner faq-list">
-            {faqs.map((item, index) => (
-              <details className="faq-item" key={item.question}>
-                <summary><span>0{index + 1}</span><strong>{item.question}</strong><HelpCircle size={19} aria-hidden="true" /></summary>
-                <p>{item.answer}</p>
-              </details>
-            ))}
+        <section className="faq-area" id="questions">
+          <div className="layout-wide faq-head"><SectionMark index="06" label="QUESTIONS FRÉQUENTES" /><div><p className="kicker">AVANT D’ESSAYER</p><h2>Les réponses sans<br /><em>la petite ligne cachée.</em></h2></div></div>
+          <div className="layout-wide faq-stack">
+            {faqs.map((faq, index) => <details key={faq.question} className="faq-line"><summary><span>0{index + 1}</span><strong>{faq.question}</strong><ChevronDown size={20} /></summary><p>{faq.answer}</p></details>)}
           </div>
         </section>
 
-        <section className="final-cta section-dark">
-          <AsciiNetwork />
-          <div className="final-cta-inner">
-            <p className="eyebrow"><Zap size={15} /> VOTRE LIGNE, VOTRE RYTHME</p>
-            <h2>Envoyez le premier message<br />sans ouvrir une nouvelle piste.</h2>
-            <a className="button button-primary" href={APP_URL} target="_blank" rel="noreferrer">Ouvrir Threnyx <ArrowUpRight size={19} /></a>
-          </div>
+        <section className="closing-signal">
+          <Orbit small />
+          <p className="kicker">PRÊT À OUVRIR LA LIGNE ?</p>
+          <h2>Essayez l’application.<br /><em>Gardez les questions.</em></h2>
+          <p>La meilleure manière de comprendre Threnyx reste de parcourir l’app, comparer l’empreinte d’un contact et consulter les limites documentées.</p>
+          <div className="hero-buttons"><a href={APP_URL} target="_blank" rel="noreferrer" className="action action-copper">Ouvrir Threnyx <ArrowUpRight size={18} /></a><a href={REPO_URL} target="_blank" rel="noreferrer" className="action action-line">Voir le code <Github size={18} /></a></div>
         </section>
       </main>
 
-      <footer className="footer">
-        <a className="brand footer-brand" href="#top"><img src={markUrl} alt="" /><span>THRENYX<em>///</em></span></a>
+      <footer className="landing-footer">
+        <a href="#top" className="brand-lockup"><img src={markUrl} alt="" /><span>THRENYX <i>///</i></span></a>
         <p>MESSAGERIE PRIVÉE · PWA · NOSTR-MESH</p>
-        <a className="footer-link" href="https://github.com/mateorey22/threnyx" target="_blank" rel="noreferrer"><Github size={16} /> Voir le code</a>
+        <a href={REPO_URL} target="_blank" rel="noreferrer">GitHub <ArrowUpRight size={15} /></a>
       </footer>
     </div>
   );

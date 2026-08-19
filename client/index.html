@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <meta name="description" content="Threnyx est une messagerie privée sans numéro de téléphone, avec identité locale, messages persistants NIP-17, snapshots Constellation chiffrés et appairage local optionnel pour un bot Hermes Relay dédié." />
+    <meta name="description" content="Découvrez Threnyx : une messagerie PWA sans numéro de téléphone, avec identité locale, partage de contact QR/NFC, messages NIP-17 et ressources techniques publiques." />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="theme-color" content="#0a0b0b" />
@@ -36,15 +36,15 @@
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="fr_FR" />
     <meta property="og:site_name" content="Threnyx" />
-    <meta property="og:title" content="Threnyx — Messagerie privée, sans piste" />
-    <meta property="og:description" content="Messagerie privée sans numéro de téléphone, identité locale, messages persistants NIP-17 et snapshots chiffrés de continuité entre appareils." />
+    <meta property="og:title" content="Threnyx — Démos d’une messagerie privée, sans numéro" />
+    <meta property="og:description" content="Découvrez les parcours Threnyx : identité locale, contact QR/NFC, snapshot chiffré Constellation et connecteur Hermes séparé." />
     <meta property="og:url" content="https://mateorey22.github.io/threnyx-landing/" />
     <meta property="og:image" content="https://files.manuscdn.com/user_upload_by_module/session_file/92875856/mKGaociWMqfNBuFS.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Threnyx — Messagerie privée, sans piste" />
-    <meta name="twitter:description" content="Messagerie privée, identité locale, messages persistants NIP-17 et snapshots chiffrés, sans numéro de téléphone." />
+    <meta name="twitter:title" content="Threnyx — Démos d’une messagerie privée, sans numéro" />
+    <meta name="twitter:description" content="Identité locale, contact QR/NFC, messages NIP-17 et documentation technique publique." />
     <meta name="twitter:image" content="https://files.manuscdn.com/user_upload_by_module/session_file/92875856/mKGaociWMqfNBuFS.jpg" />
-    <title>Threnyx — Messagerie privée, sans piste</title>
+    <title>Threnyx — Démos d’une messagerie privée, sans numéro</title>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -54,7 +54,7 @@
             "@id": "https://mateorey22.github.io/threnyx-landing/#website",
             "url": "https://mateorey22.github.io/threnyx-landing/",
             "name": "Threnyx",
-            "description": "Landing page de Threnyx, messagerie privée sans numéro de téléphone.",
+            "description": "Landing page de Threnyx, messagerie privée sans numéro de téléphone avec démonstrations et ressources techniques publiques.",
             "logo": {
               "@type": "ImageObject",
               "url": "https://mateorey22.github.io/threnyx-landing/icons/icon-512.png",
@@ -71,7 +71,7 @@
             "applicationCategory": "CommunicationApplication",
             "operatingSystem": "Web",
             "browserRequirements": "Navigateur web moderne avec JavaScript activé",
-            "description": "Messagerie privée basée sur une identité locale, les formats Nostr NIP-17, NIP-44 v2 et NIP-59 pour les nouveaux messages persistants, le partage de contact par QR, lien ou NFC, des snapshots chiffrés Constellation et un appairage local optionnel vers un bot Hermes Relay dédié. Un connecteur serveur séparé reste requis.",
+            "description": "Messagerie privée basée sur une identité locale, les formats Nostr NIP-17, NIP-44 v2 et NIP-59 pour les nouveaux messages persistants, le partage de contact par QR, lien ou NFC, des snapshots chiffrés Constellation et un appairage optionnel vers une identité Nostr de bot Hermes. Un connecteur séparé reste requis.",
             "inLanguage": "fr-FR",
             "image": "https://files.manuscdn.com/user_upload_by_module/session_file/92875856/mKGaociWMqfNBuFS.jpg",
             "logo": "https://mateorey22.github.io/threnyx-landing/icons/icon-512.png",
@@ -88,58 +88,23 @@
               },
               {
                 "@type": "Question",
-                "name": "Les messages Threnyx sont-ils privés ?",
-                "acceptedAnswer": {"@type": "Answer", "text": "Le contenu des messages et médias est chiffré avant de circuler. Threnyx vise aussi à limiter les informations demandées au départ, sans promettre une invisibilité totale."}
+                "name": "Puis-je installer Threnyx comme une application ?",
+                "acceptedAnswer": {"@type": "Answer", "text": "Oui. Threnyx est une PWA : Chrome Android peut l’installer et l’ouvrir en mode application. Le navigateur et le système restent responsables des permissions, notifications et comportements en arrière-plan."}
               },
               {
                 "@type": "Question",
-                "name": "Threnyx est-il une application ou un site web ?",
-                "acceptedAnswer": {"@type": "Answer", "text": "Threnyx est une application web installable. Sur un navigateur compatible, elle peut être installée et propose messages, images, notes vocales et appels audio ou vidéo."}
+                "name": "La carte NFC récupère-t-elle mon compte automatiquement ?",
+                "acceptedAnswer": {"@type": "Answer", "text": "Non. Une clé NFC de reprise permet de retrouver un snapshot chiffré puis de créer une nouvelle protection locale. Un document CRDT Yjs peut fusionner localement les contacts, groupes et préférences compatibles ; il ne couvre pas les messages ni les médias. Un tag NDEF classique peut être copié et doit être protégé comme une clé."}
               },
               {
                 "@type": "Question",
-                "name": "Comment ajouter un contact sur Threnyx ?",
-                "acceptedAnswer": {"@type": "Answer", "text": "Vous pouvez partager un contact avec un QR code, un lien direct ou un tag NFC NDEF compatible."}
-              },
-              {
-                "@type": "Question",
-                "name": "Puis-je retrouver mon identité sur un nouvel appareil ?",
-                "acceptedAnswer": {"@type": "Answer", "text": "Constellation Vault propose un snapshot chiffré publié manuellement sur plusieurs relais. Une clé NFC peut porter la clé de reprise, mais un tag NDEF classique est un objet à protéger car il peut être copié. La synchronisation automatique en arrière-plan et la disponibilité des gros médias ne sont pas garanties dans cette première version."}
-              },
-              {
-                "@type": "Question",
-                "name": "Que se passe-t-il si deux appareils ont changé des données hors ligne ?",
-                "acceptedAnswer": {"@type": "Answer", "text": "Pour les snapshots Constellation compatibles, Threnyx fusionne automatiquement les contacts, groupes et préférences grâce à un document CRDT local. Les messages, appels, invitations, suppressions et gros médias ne font pas partie de cette fusion automatique à ce stade."}
-              },
-              {
-                "@type": "Question",
-                "name": "Le chiffrement offre-t-il une confidentialité persistante ?",
-                "acceptedAnswer": {"@type": "Answer", "text": "Les nouveaux messages persistants suivent NIP-17, avec NIP-44 v2 et NIP-59. Ces formats sont actifs pour standardiser le chiffrement et l’enveloppe de livraison. Un pilote de session MLS/Marmot est en qualification séparée ; Threnyx ne revendique pas encore de forward secrecy ni de post-compromise security."}
+                "name": "Que protège exactement le chiffrement actuel ?",
+                "acceptedAnswer": {"@type": "Answer", "text": "Les nouveaux messages persistants utilisent NIP-17, NIP-44 v2 et NIP-59. Threnyx communique sans promesse de forward secrecy ou de post-compromise security : le pilote de session correspondant est distinct et non activé dans les conversations."}
               },
               {
                 "@type": "Question",
                 "name": "Puis-je connecter Threnyx à Hermes Agent ?",
-                "acceptedAnswer": {"@type": "Answer", "text": "Threnyx prépare un appairage volontaire vers une identité Nostr de bot : code signé de courte durée, QR et permissions séparées pour les médias. Un connecteur Hermes Relay persistant reste nécessaire. Les conversations humaines et les appels WebRTC ne sont pas transmis à l’agent."}
-              },
-              {
-                "@type": "Question",
-                "name": "Que fait le wipe panique de Threnyx ?",
-                "acceptedAnswer": {"@type": "Answer", "text": "Un triple-tap rapide peut fermer les connexions et effacer le coffre local de l’appareil. Il ne peut pas retirer les événements déjà publiés sur des relais Nostr ni les données déjà transmises à un autre appareil."}
-              },
-              {
-                "@type": "Question",
-                "name": "Comment vérifier l’identité cryptographique d’un contact ?",
-                "acceptedAnswer": {"@type": "Answer", "text": "Threnyx affiche le fingerprint public et son QR. Vous pouvez comparer le code par un canal de confiance ; un badge local indique ensuite la vérification. Cette étape réduit le risque de substitution, sans remplacer la comparaison hors-bande."}
-              },
-              {
-                "@type": "Question",
-                "name": "Que peut voir un appareil lié ?",
-                "acceptedAnswer": {"@type": "Answer", "text": "Un appareil lié doit recevoir une portée minimale explicitement autorisée. La révocation bloque les nouvelles synchronisations, mais ne peut pas effacer les données déjà reçues par cet appareil."}
-              },
-              {
-                "@type": "Question",
-                "name": "Comment fonctionnent les invitations de groupe GC1 ?",
-                "acceptedAnswer": {"@type": "Answer", "text": "Les administrateurs peuvent utiliser une invitation de groupe distincte des cartes de contact MC1 et des clés de récupération TCV1. Une invitation de groupe peut expirer ou être révoquée sans retirer les membres déjà présents."}
+                "acceptedAnswer": {"@type": "Answer", "text": "Vous appairez volontairement une identité Nostr de bot avec un code signé et limité dans le temps. Les commandes et choix sont transmis au connecteur du bot. Les conversations humaines et les appels WebRTC ne sont pas envoyés à Hermes par ce parcours."}
               }
             ]
           }
@@ -151,9 +116,9 @@
     <div id="root">
       <main id="seo-fallback">
         <p class="seo-kicker">Threnyx · messagerie privée</p>
-        <h1>Vos conversations ne sont pas un produit.</h1>
-        <p>Threnyx est une messagerie privée sans numéro de téléphone, construite autour d’une identité locale. Les nouveaux messages persistants utilisent NIP-17, NIP-44 v2 et NIP-59 ; les échanges de contact peuvent passer par QR, lien direct ou NFC compatible. Un appairage local optionnel peut préparer un bot Hermes Relay dédié, sans partager le coffre ou les conversations humaines.</p>
-        <p><a href="https://mateorey22.github.io/threnyx/">Ouvrir l’application Threnyx</a> · <a href="#controles">Voir les contrôles de sécurité</a></p>
+        <h1>Votre ligne. Vos règles.</h1>
+        <p>Threnyx est une messagerie privée sans numéro de téléphone, construite autour d’une identité locale. Découvrez les parcours de contact QR/NFC, les snapshots Constellation chiffrés et l’appairage volontaire d’un bot Hermes Relay dédié via un connecteur séparé. Les nouveaux messages persistants utilisent NIP-17, NIP-44 v2 et NIP-59. Threnyx ne revendique pas encore de forward secrecy active.</p>
+        <p><a href="https://mateorey22.github.io/threnyx/">Ouvrir l’application Threnyx</a> · <a href="https://github.com/mateorey22/threnyx">Voir le code et la documentation</a></p>
       </main>
     </div>
     <script type="module" src="/src/main.tsx"></script>

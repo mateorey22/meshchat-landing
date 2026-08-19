@@ -220,3 +220,14 @@ Constellation Vault ne diffuse pas le compte en clair chez tous les relais : les
 - [x] Ajouter le code source dans un répertoire isolé du dépôt `mateorey22/threnyx`, sans l’inclure dans les assets GitHub Pages.
 - [x] Ajouter un guide d’installation, un exemple de configuration sans secret, des avertissements de déploiement persistant et une procédure de tests.
 - [x] Publier le connecteur audité sur GitHub et vérifier que la PWA publique reste inchangée.
+
+## Refonte de visibilité et démonstrations Threnyx
+
+- [x] Auditer la landing actuelle, son contenu indexable et ses parcours de conversion avant la refonte.
+- [x] Définir une nouvelle architecture éditoriale : démonstration PWA, parcours NFC, découverte Hermes, ressources et questions fréquentes.
+- [x] Créer des médias de démonstration cohérents avec Silent Orbit, sans prétendre représenter des données, conversations ou avis réels.
+- [x] Refaire le héros, la navigation, les sections produit, les appels à l’action et les transitions pour mobile et ordinateur.
+- [x] Ajouter des pages ou sections utiles à la recherche organique sur Nostr, NFC, récupération multi-appareils et connecteur Hermes, avec limites explicites.
+- [x] Mettre à jour les métadonnées SEO, données structurées, sitemap, llms.txt et liens GitHub associés à la nouvelle architecture.
+- [x] Écrire et exécuter les tests de contenu, TypeScript, build et validation visuelle desktop/mobile.
+- [ ] Publier la refonte, vérifier GitHub Pages et préparer les contenus de partage organique sans achat de liens ni faux avis.

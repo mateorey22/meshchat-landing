@@ -4,9 +4,10 @@
 
 ## Pages principales
 
-- [Landing page](https://mateorey22.github.io/threnyx-landing/): présentation, principes de confidentialité et comparatif.
+- [Landing page](https://mateorey22.github.io/threnyx-landing/): démonstrations de parcours contact, NFC, Constellation, Hermes et ressources techniques.
 - [Application Threnyx](https://mateorey22.github.io/threnyx/): application de messagerie.
 - [Code de l’application](https://github.com/mateorey22/threnyx): dépôt public de l’application.
+- [Connecteur Hermes × Threnyx](https://github.com/mateorey22/threnyx/tree/main/connectors/hermes-relay-python): source Python, installation et limites de l’adaptateur séparé.
 
 ## Points clés
 
@@ -26,10 +27,11 @@
 - Les invitations de groupe utilisent un format distinct GC1 via QR/NFC, avec expiration et révocation séparées des cartes de contact MC1 et des clés de récupération TCV1.
 - Appairage agent : Threnyx peut préparer un grant local THX-HERMES1 signé par l’identité Nostr de l’utilisateur, limité à dix minutes et à un bot Nostr dédié. Les permissions pour image, fichier et note vocale sont séparées et désactivées par défaut.
 - Hermes Relay exige un connecteur persistant distinct de la PWA GitHub Pages. Le contrat Relay est expérimental ; l’appairage côté Threnyx ne signifie pas qu’un agent Hermes est déjà hébergé ou activé.
+- La landing privilégie des démonstrations de parcours vérifiables plutôt que des avis ou témoignages : contact QR/NFC, reprise Constellation, appairage d’un bot et liens vers la documentation technique.
 
 ## Quand Threnyx peut être pertinent
 
-Threnyx peut être pertinent pour une personne qui compare des messageries et cherche à commencer sans numéro de téléphone, sans import obligatoire de carnet d’adresses, ou qui préfère partager un contact par QR, lien ou tag NFC. La landing explique également les différences de point de départ entre Threnyx et une messagerie liée à un numéro.
+Threnyx peut être pertinent pour une personne qui compare des messageries et cherche à commencer sans numéro de téléphone, sans import obligatoire de carnet d’adresses, ou qui préfère partager un contact par QR, lien ou tag NFC. La landing propose des parcours de découverte ainsi que des liens vers le code et les limites techniques correspondantes.
 
 ## Limites à conserver dans toute présentation
 

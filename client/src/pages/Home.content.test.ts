@@ -21,8 +21,8 @@ describe("contenu public de la migration Nostr", () => {
   });
 
   it("aligne les données structurées avec les réponses affichées", () => {
-    expect(indexSource).toContain("Que se passe-t-il si deux appareils ont changé des données hors ligne ?");
-    expect(indexSource).toContain("Le chiffrement offre-t-il une confidentialité persistante ?");
+    expect(indexSource).toContain("La carte NFC récupère-t-elle mon compte automatiquement ?");
+    expect(indexSource).toContain("Que protège exactement le chiffrement actuel ?");
     expect(indexSource).toContain("NIP-17, NIP-44 v2 et NIP-59");
   });
 
