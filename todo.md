@@ -209,6 +209,6 @@ Constellation Vault ne diffuse pas le compte en clair chez tous les relais : les
 - [x] Vérifier le mécanisme Hermes utilisé pour synchroniser les commandes et actions disponibles d’un connecteur vers Telegram.
 - [x] Définir un catalogue de capacités agent signé, versionné et limité à l’appairage Threnyx, sans exécution locale arbitraire.
 - [x] Ajouter dans Threnyx des boutons interactifs et menus de sélection pour les modèles, nouvelles sessions, réinitialisation, état et actions déclarées par le connecteur.
-- [ ] Exiger une référence d’action, un accusé et un contrôle anti-rejeu pour chaque interaction envoyée au bot.
+- [x] Exiger une référence d’action, un accusé et un contrôle anti-rejeu pour chaque interaction envoyée au bot.
 - [x] Mettre à jour le guide GitHub, les tests de sécurité et le prompt du connecteur Python Hermes avec ce contrat commun.
 - [ ] Publier puis vérifier une interaction réelle avec la clé publique du bot Hermes sur Android.
