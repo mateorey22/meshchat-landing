@@ -202,7 +202,7 @@ Constellation Vault ne diffuse pas le compte en clair chez tous les relais : les
 - [x] Ajouter l’aide de commandes, la saisie assistée, les commandes agent validées et les états d’erreur explicites.
 - [x] Retirer le QR d’appairage Hermes, conserver le code copiable/importable et améliorer le parcours de connexion agent.
 - [ ] Corriger les chevauchements mobile des réglages et valider les vues téléphone, Markdown, commandes, coffre et WebRTC.
-- [ ] Publier les améliorations et mettre à jour le guide Hermes avec les commandes réellement supportées.
+- [x] Publier les améliorations et mettre à jour le guide Hermes avec les commandes réellement supportées.
 
 ## Interactions Hermes compatibles Telegram
 
