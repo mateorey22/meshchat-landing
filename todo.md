@@ -170,7 +170,14 @@ Constellation Vault ne diffuse pas le compte en clair chez tous les relais : les
 - [x] Auditer l’indexabilité publique : HTTP, robots, canonique, sitemap, rendu HTML, données structurées et éventuels `noindex`.
 - [x] Vérifier les résultats et les directives Google officielles pour distinguer une désindexation d’un délai de réexploration.
 - [x] Corriger les défauts SEO techniques vérifiables et ajouter une protection de non-régression.
-- [ ] Publier les corrections et fournir les actions Search Console nécessaires à la réexploration.
+- [x] Publier les corrections et fournir les actions Search Console nécessaires à la réexploration.
+
+## Diagnostic Search Console assisté
+
+- [x] Relever le statut d’inspection Google de l’URL canonique et les motifs précis de non-indexation éventuels.
+- [x] Comparer le résultat Search Console au HTML, robots, canonique, sitemap et rendu public actuels.
+- [x] Corriger le signal Search Console réellement confirmé : sitemap public soumis dans la propriété puis surveillé au premier traitement.
+- [x] Soumettre une demande d’indexation uniquement après confirmation explicite de l’utilisateur.
 
 ## Étude Hermes Agent Gateway et Threnyx
 
