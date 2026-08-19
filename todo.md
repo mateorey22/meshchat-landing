@@ -212,3 +212,11 @@ Constellation Vault ne diffuse pas le compte en clair chez tous les relais : les
 - [x] Exiger une référence d’action, un accusé et un contrôle anti-rejeu pour chaque interaction envoyée au bot.
 - [x] Mettre à jour le guide GitHub, les tests de sécurité et le prompt du connecteur Python Hermes avec ce contrat commun.
 - [ ] Publier puis vérifier une interaction réelle avec la clé publique du bot Hermes sur Android.
+
+## Connecteur Hermes source ouvert dans le dépôt Threnyx
+
+- [x] Examiner l’archive du connecteur fournie sans exécuter son code, inventorier ses fichiers et détecter les secrets ou artefacts à exclure.
+- [x] Vérifier le contrat du connecteur avec THX-HERMES1, THX-HERMES-UI1, les prompts, les accusés et le contrôle anti-rejeu publiés côté PWA.
+- [x] Ajouter le code source dans un répertoire isolé du dépôt `mateorey22/threnyx`, sans l’inclure dans les assets GitHub Pages.
+- [x] Ajouter un guide d’installation, un exemple de configuration sans secret, des avertissements de déploiement persistant et une procédure de tests.
+- [ ] Publier le connecteur audité sur GitHub et vérifier que la PWA publique reste inchangée.
