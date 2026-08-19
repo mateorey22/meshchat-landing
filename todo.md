@@ -230,4 +230,13 @@ Constellation Vault ne diffuse pas le compte en clair chez tous les relais : les
 - [x] Ajouter des pages ou sections utiles à la recherche organique sur Nostr, NFC, récupération multi-appareils et connecteur Hermes, avec limites explicites.
 - [x] Mettre à jour les métadonnées SEO, données structurées, sitemap, llms.txt et liens GitHub associés à la nouvelle architecture.
 - [x] Écrire et exécuter les tests de contenu, TypeScript, build et validation visuelle desktop/mobile.
-- [ ] Publier la refonte, vérifier GitHub Pages et préparer les contenus de partage organique sans achat de liens ni faux avis.
+- [x] Publier la refonte, vérifier GitHub Pages et préparer les contenus de partage organique sans achat de liens ni faux avis.
+
+- [x] Publier la refonte via l’intégration GitHub Manus uniquement, sans utiliser le navigateur ni demander d’identifiants, puis vérifier GitHub Pages.
+  
+  Note : les commits locaux ont été poussés via l’intégration GitHub Manus et GitHub Pages sert maintenant la refonte publique.
+
+## Clarification d’accès GitHub
+
+- [x] Réparer ou reconnecter l’intégration GitHub Manus utilisée par la session, sans exposer de jeton dans le dépôt ni dans le chat.
+- [x] Pousser les commits locaux de la refonte par l’intégration Manus et contrôler la version publique.
