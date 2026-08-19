@@ -219,4 +219,4 @@ Constellation Vault ne diffuse pas le compte en clair chez tous les relais : les
 - [x] Vérifier le contrat du connecteur avec THX-HERMES1, THX-HERMES-UI1, les prompts, les accusés et le contrôle anti-rejeu publiés côté PWA.
 - [x] Ajouter le code source dans un répertoire isolé du dépôt `mateorey22/threnyx`, sans l’inclure dans les assets GitHub Pages.
 - [x] Ajouter un guide d’installation, un exemple de configuration sans secret, des avertissements de déploiement persistant et une procédure de tests.
-- [ ] Publier le connecteur audité sur GitHub et vérifier que la PWA publique reste inchangée.
+- [x] Publier le connecteur audité sur GitHub et vérifier que la PWA publique reste inchangée.
