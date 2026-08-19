@@ -194,3 +194,21 @@ Constellation Vault ne diffuse pas le compte en clair chez tous les relais : les
 - [x] Préparer les événements Nostr dédiés à un bot agent, sans donner accès aux conversations humaines, aux clés de coffre ou aux appels WebRTC.
 - [x] Écrire les tests de format, rejet, expiration, permissions et révocation ; revalider la CSP, l’onboarding et les fonctions WebRTC existantes.
 - [x] Mettre à jour la landing et le guide Hermes avec les capacités prêtes côté Threnyx, les prérequis serveur et les limites du Relay expérimental.
+
+## Expérience Hermes, Markdown et mobile
+
+- [x] Auditer les réponses Hermes, le rendu de messages, les commandes `/` existantes, le QR d’appairage et les zones mobiles des réglages.
+- [x] Définir un sous-ensemble Markdown sûr et le contrat de commandes agent, sans interpréter de HTML non fiable.
+- [x] Ajouter l’aide de commandes, la saisie assistée, les commandes agent validées et les états d’erreur explicites.
+- [x] Retirer le QR d’appairage Hermes, conserver le code copiable/importable et améliorer le parcours de connexion agent.
+- [ ] Corriger les chevauchements mobile des réglages et valider les vues téléphone, Markdown, commandes, coffre et WebRTC.
+- [ ] Publier les améliorations et mettre à jour le guide Hermes avec les commandes réellement supportées.
+
+## Interactions Hermes compatibles Telegram
+
+- [x] Vérifier le mécanisme Hermes utilisé pour synchroniser les commandes et actions disponibles d’un connecteur vers Telegram.
+- [x] Définir un catalogue de capacités agent signé, versionné et limité à l’appairage Threnyx, sans exécution locale arbitraire.
+- [x] Ajouter dans Threnyx des boutons interactifs et menus de sélection pour les modèles, nouvelles sessions, réinitialisation, état et actions déclarées par le connecteur.
+- [ ] Exiger une référence d’action, un accusé et un contrôle anti-rejeu pour chaque interaction envoyée au bot.
+- [x] Mettre à jour le guide GitHub, les tests de sécurité et le prompt du connecteur Python Hermes avec ce contrat commun.
+- [ ] Publier puis vérifier une interaction réelle avec la clé publique du bot Hermes sur Android.
